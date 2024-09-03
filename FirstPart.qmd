@@ -1,0 +1,252 @@
+---
+title: "R programming Session"
+subtitle: "Health Policy Math Camp 2024 - Interactive Quarto Document using webR v0.1.0"
+author: "Valeria Gracia Olvera"
+engine: knitr
+theme: journal
+execute:
+  echo: true
+  error: true
+embed-resources: true
+format:
+    html: 
+      toc: true
+editor: source
+---
+
+```{=html}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+<style>
+  .CodeMirror pre {
+    background-color: unset !important;
+  }
+  .btn-webr {
+    background-color: #EEEEEE;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/r/r.js"></script>
+<script type="module">
+  import { WebR } from "https://webr.r-wasm.org/v0.1.0/webr.mjs";
+  globalThis.webR = new WebR({
+    SW_URL: "/"
+  });
+  await globalThis.webR.init();
+  globalThis.webRCodeShelter = await new globalThis.webR.Shelter();
+  document.querySelectorAll(".btn-webr").forEach((btn) => {
+    btn.innerText = "Run code";
+    btn.disabled = false;
+  });
+</script>
+```
+```{r}
+#| results: asis
+#| echo: false
+webr_counter = 0
+
+cat("importScripts('https://webr.r-wasm.org/v0.1.0/webr-worker.js');", file = "webr-worker.js")
+cat("importScripts('https://webr.r-wasm.org/v0.1.0/webr-serviceworker.js');", file = "webr-serviceworker.js")
+
+webr_editor = function(code = I(encodeString(code, quote = '`')), width, height) { 
+webr_counter <<- webr_counter + 1
+
+output = glue::glue('
+<button class="btn btn-default btn-webr" disabled type="button"  id="webr-run-button-{{ webr_counter }}">Loading webR...</button>
+<div id="webr-editor-{{ webr_counter }}"></div>
+<div id="webr-code-output-{{ webr_counter }}"><pre style="visibility: hidden"></pre></div>
+<script type="module">
+  const runButton = document.getElementById("webr-run-button-{{ webr_counter }}");
+  const outputDiv = document.getElementById("webr-code-output-{{ webr_counter }}");
+  const editorDiv = document.getElementById("webr-editor-{{ webr_counter }}");
+
+  const editor = CodeMirror((elt) => {
+    elt.style.border = "1px solid #eee";
+    elt.style.height = "auto";
+    editorDiv.append(elt);
+  },{
+    value: {{code}},
+    lineNumbers: true,
+    mode: "r",
+    theme: "light default",
+    viewportMargin: Infinity,
+  });
+
+  runButton.onclick = async () => {
+    runButton.disabled = true;
+    let canvas = undefined;
+    await globalThis.webR.init();
+    await webR.evalRVoid("canvas(width={{width}}, height={{height}})");
+    const result = await webRCodeShelter.captureR(editor.getValue(), {
+      withAutoprint: true,
+      captureStreams: true,
+      captureConditions: false,
+      env: webR.objs.emptyEnv,
+    });
+    try {
+      await webR.evalRVoid("dev.off()");
+      const out = result.output.filter(
+        evt => evt.type == "stdout" || evt.type == "stderr"
+      ).map((evt) => evt.data).join("\\n");
+
+      const msgs = await webR.flush();
+      msgs.forEach(msg => {
+        if (msg.type === "canvasExec"){
+          if (!canvas) {
+            canvas = document.createElement("canvas");
+            canvas.setAttribute("width", 2 * {{width}});
+            canvas.setAttribute("height", 2 * {{height}});
+            canvas.style.width="700px";
+            canvas.style.display="block";
+            canvas.style.margin="auto";
+          }
+          Function(`this.getContext("2d").${msg.data}`).bind(canvas)();
+        }
+      });
+
+      outputDiv.innerHTML = "";
+      const pre = document.createElement("pre");
+      if (/\\S/.test(out)) {
+        const code = document.createElement("code");
+        code.innerText = out;
+        pre.appendChild(code);
+      } else {
+        pre.style.visibility = "hidden";
+      }
+      outputDiv.appendChild(pre);
+
+      if (canvas) {
+        const p = document.createElement("p");
+        p.appendChild(canvas);
+        outputDiv.appendChild(p);
+      }
+    } finally {
+      webRCodeShelter.purge();
+      runButton.disabled = false;
+    }
+  }
+
+  await globalThis.webR.init();
+  runButton.innerText = "Run code";
+  runButton.disabled = false;
+</script>
+', .open = "{{", .close = "}}")
+}
+```
+
+```{r}
+#| echo: false
+knitr::knit_engines$set(webr = function(options) {
+  code = paste(options$code, collapse = "\n")
+  w = knitr::opts_current$get('fig.width') * 72
+  h = knitr::opts_current$get('fig.height') * 72
+  options$results = 'asis'
+  
+  form = webr_editor(code = I(encodeString(code, quote = '`')), width = w, height = h)
+  
+  form
+}
+)
+```
+
+References:
+
+-   Davies, T. M. (2016). The book of R : a first course in programming and statistics. No Starch Press, San Francisco, CA, USA, 1st edition.
+
+-   GitHub repository: [webR-quarto-demos](https://github.com/coatless-r-n-d/webR-quarto-demos)
+
+# Arrays
+
+# Conditionals
+
+# Loops
+
+# Writing functions
+
+## Examples
+
+### Example 1
+
+A function that simply assigns three different objects.
+
+```{webr}
+# Create a function
+dummy1 <- function(){
+  aa <- 2.5
+  bb <- "string"
+  dd <- 4:8
+}
+```
+
+### Example 2
+
+A function with multiple returns.
+
+```{webr}
+dummy2 <- function(){
+  aa <- 2.5
+  bb <- "string1"
+  return(aa)
+  dd <- 4:8
+  return(bb)
+}
+```
+
+### Example 3
+
+A function with arguments.
+
+```{webr}
+get_sum <- function(a,b){
+  if(is.numeric(a) & is.numeric(b)){
+    return(a+b)
+  }
+  else{
+    return(NA)
+  }
+}
+```
+
+**Questions:**
+
+1.  Does a function always require arguments? When is it necessary for it to have arguments?
+
+2.  What happened if after you run `dummy1()` and then get the object `aa`?
+
+3.  What happens if you run `bn <- dummy1()` and then get the object `bn`?
+
+4.  What value would `dummy2()` return?
+
+5.  How many `return` elements can a function have?
+
+### Example 4
+
+Ellipsis `...`
+
+```{webr}
+myplot_fun <- function(x,y,...){
+  if(length(x) != length(y)){
+    message("Error: vectors must be the same length")
+  }
+  else{
+    plot(x,y,...)
+  }
+}
+
+myplot_fun(c(1,2,3,4),c(5,6,7,8))
+myplot_fun(c(1,2,3,4),c(5,6,7))
+myplot_fun(x = c(1,2,3,4), 
+           y = c(5,6,7,8),
+           main = "Plot in a function",
+           col  = "red",
+           xlab = "x-axis",
+           ylab = "y-axis")
+```
+
+## Takeaways
+
+-   Arguments are not always required for a function to be executed.
+-   A function that does not have a `return` element technically returns nothing; but it implicitly returns the last line of code.
+-   A function can have multiple `return` elements, however, once it encounters a return, it exits.
+-   Ellipsis allows you to pass additional arguments without having to first define them in the argument list, and these arguments can then be passed to another function call within the body of the code.
