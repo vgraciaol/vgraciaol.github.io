@@ -1,9 +1,7 @@
 ---
-title: "About"
+title: "About me"
 ---
 
-About this site
+I am a PhD Health Policy student in the Department of Health Policy at Stanford University in the Decision Science track and a Fulbright scholar. Prior to starting my PhD at Stanford in 2022, I worked as a research assistant at the Center for Research and Teaching in Economics (CIDE) in Mexico.
 
-```{r}
-1 + 1
-```
+In 2020, I joined the [Stanford-CIDE COronavirus Simulation MOdel](https://www.sc-cosmo.org/) (SC-COSMO) consortium where I worked on high-impact projects to estimate the health effects of non-pharmaceutical interventions to control the spread of the COVID-19 epidemic in Mexico. Additionally, as a member of the [Cancer Intervention and Surveillance Modeling Network](https://cisnet.cancer.gov/) (CISNET), I worked on a project to model HPV transmission and cervical cancer disease at a state level in the United States.
