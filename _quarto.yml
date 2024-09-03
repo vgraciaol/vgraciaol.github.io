@@ -5,7 +5,7 @@ website:
   title: "Valeria Gracia Olvera's GitHub page"
   navbar:
     left:
-      - href: about.qmd
+      - href: index.qmd
         text: About me
       - rprogramming.qmd
 
