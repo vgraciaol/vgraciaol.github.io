@@ -1,11 +1,114 @@
 ---
-title: "vgraciaol.github.io"
+title: "R programming Session"
+subtitle: "Health Policy Math Camp 2024 - Interactive Quarto Document using webR"
+author: "Valeria Gracia Olvera"
+execute:
+  echo: true
+  error: true
+format:
+    html: 
+      toc: true
+filters:
+  - webr
 ---
 
-This is a Quarto website.
+*References*:
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+-   Davies, T. M. (2016). The book of R : a first course in programming and statistics. No Starch Press, San Francisco, CA, USA, 1st edition.
 
-```{r}
-1 + 1
+-   `webR` extension for Quarto: [GitHub repository](https://github.com/coatless/quarto-webr)
+
+# Arrays
+
+# Conditionals
+
+# Loops
+
+# Writing functions
+
+## Examples
+
+### Example 1
+
+A function that simply assigns three different objects.
+
+```{webr-r}
+# Create a function
+dummy1 <- function(){
+  aa <- 2.5
+  bb <- "string"
+  dd <- 4:8
+}
 ```
+
+### Example 2
+
+A function with multiple returns.
+
+```{webr-r}
+dummy2 <- function(){
+  aa <- 2.5
+  bb <- "string1"
+  return(aa)
+  dd <- 4:8
+  return(bb)
+}
+```
+
+### Example 3
+
+A function with arguments.
+
+```{webr-r}
+get_sum <- function(a,b){
+  if(is.numeric(a) & is.numeric(b)){
+    return(a+b)
+  }
+  else{
+    return(NA)
+  }
+}
+```
+
+**Questions:**
+
+1.  Does a function always require arguments? When is it necessary for it to have arguments?
+
+2.  What happened if after you run `dummy1()` and then get the object `aa`?
+
+3.  What happens if you run `bn <- dummy1()` and then get the object `bn`?
+
+4.  What value would `dummy2()` return?
+
+5.  How many `return` elements can a function have?
+
+### Example 4
+
+Ellipsis `...`
+
+```{webr-r}
+myplot_fun <- function(x,y,...){
+  if(length(x) != length(y)){
+    message("Error: vectors must be the same length")
+  }
+  else{
+    plot(x,y,...)
+  }
+}
+
+myplot_fun(c(1,2,3,4),c(5,6,7,8))
+myplot_fun(c(1,2,3,4),c(5,6,7))
+myplot_fun(x = c(1,2,3,4), 
+           y = c(5,6,7,8),
+           main = "Plot in a function",
+           col  = "red",
+           xlab = "x-axis",
+           ylab = "y-axis")
+```
+
+## Takeaways
+
+-   Arguments are not always required for a function to be executed.
+-   A function that does not have a `return` element technically returns nothing; but it implicitly returns the last line of code.
+-   A function can have multiple `return` elements, however, once it encounters a return, it exits.
+-   Ellipsis allows you to pass additional arguments without having to first define them in the argument list, and these arguments can then be passed to another function call within the body of the code.
