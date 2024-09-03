@@ -1,30 +1,30 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R programming Session",
-    "section": "",
-    "text": "References:"
-  },
-  {
-    "objectID": "index.html#examples",
-    "href": "index.html#examples",
-    "title": "R programming Session",
-    "section": "Examples",
-    "text": "Examples\n\nExample 1\nA function that simply assigns three different objects.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nExample 2\nA function with multiple returns.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nExample 3\nA function with arguments.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nQuestions:\n\nDoes a function always require arguments? When is it necessary for it to have arguments?\nWhat happened if after you run dummy1() and then get the object aa?\nWhat happens if you run bn &lt;- dummy1() and then get the object bn?\nWhat value would dummy2() return?\nHow many return elements can a function have?\n\n\n\nExample 4\nEllipsis ...\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "index.html#takeaways",
-    "href": "index.html#takeaways",
-    "title": "R programming Session",
-    "section": "Takeaways",
-    "text": "Takeaways\n\nArguments are not always required for a function to be executed.\nA function that does not have a return element technically returns nothing; but it implicitly returns the last line of code.\nA function can have multiple return elements, however, once it encounters a return, it exits.\nEllipsis allows you to pass additional arguments without having to first define them in the argument list, and these arguments can then be passed to another function call within the body of the code."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "rprogramming.html",
+    "href": "rprogramming.html",
+    "title": "R programming Session",
+    "section": "",
+    "text": "References:"
+  },
+  {
+    "objectID": "rprogramming.html#examples",
+    "href": "rprogramming.html#examples",
+    "title": "R programming Session",
+    "section": "Examples",
+    "text": "Examples\n\nExample 1\nA function that simply assigns three different objects.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nExample 2\nA function with multiple returns.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nExample 3\nA function with arguments.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nQuestions:\n\nDoes a function always require arguments? When is it necessary for it to have arguments?\nWhat happened if you run dummy1() and then get the object aa?\nWhat happens if you run bn &lt;- dummy1() and then get the object bn?\nWhat value would dummy2() return?\nHow many return elements can a function have?\n\n\n\nExample 4\nEllipsis ...\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "rprogramming.html#takeaways",
+    "href": "rprogramming.html#takeaways",
+    "title": "R programming Session",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nA list of arguments is not always required for a function to be executed.\nA function that does not have a return element technically returns nothing; but it implicitly returns the last line of code.\nA function can have multiple return elements, however, once it encounters a return, it exits.\nEllipsis allows you to pass additional arguments without having to first define them in the argument list, and these arguments can then be passed to another function call within the body of the code."
   }
 ]

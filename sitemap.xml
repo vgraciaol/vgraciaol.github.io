@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vgraciaol.github.io/index.html</loc>
-    <lastmod>2024-09-03T06:30:14.009Z</lastmod>
+    <lastmod>2024-09-03T06:55:05.289Z</lastmod>
   </url>
   <url>
     <loc>https://vgraciaol.github.io/about.html</loc>
-    <lastmod>2024-09-03T06:30:14.009Z</lastmod>
+    <lastmod>2024-09-03T06:55:05.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vgraciaol.github.io/rprogramming.html</loc>
+    <lastmod>2024-09-03T06:55:05.289Z</lastmod>
   </url>
 </urlset>
