@@ -29,7 +29,7 @@ filters:
 
 ### Matrix
 
-The `matrix` function have the following arguments:
+The `matrix` function has the following arguments:
 
 -   `data` in a form of a vector,
 
@@ -172,7 +172,7 @@ Arrays are similar to matrices but can have more than 2 dimensions.
 
 **Example 1**
 
-An array with 3 rows, 4 columns and 2 layers, filled colunm-wise.
+An array with 3 rows, 4 columns and 2 layers, filled column-wise.
 
 ```{webr-r}
 a_AR <- array(data = 1:24,
@@ -250,7 +250,7 @@ if(str1 == "Noah"){
 }else if(str1 == "Alex"){
   cal <- 9
   cat(paste0(str1,"'s GPA is ", cal, "."))
-}else if(str1=="Matt"){
+}else if(str1 == "Matt"){
   cal <- 6
   cat(paste0(str1,"'s GPA is ", cal, "."))
 }else if(str1 == "Vanessa"){
@@ -264,7 +264,7 @@ if(str1 == "Noah"){
 
 **Example 4**
 
-The `switch` function.
+The `switch` function allows to evaluate an expression (`EXPR`) and choose from a list of alternatives.
 
 ```{webr-r}
 str1 <- "Matt"
@@ -341,7 +341,7 @@ If we want to compute the factorial of any number.
 
 ```{webr-r}
 # Number
-a <- 12
+a <- 6
 
 # Factorial value
 factorial_value <- 1
@@ -605,8 +605,7 @@ load_params_all <- function(n_t,
                          v_state_names = v_state_names,
                          n_states      = n_states,
                          v_state_init  = v_state_init,
-                         m_T           = m_T
-                         )
+                         m_T           = m_T)
     
     return(l_params_all)
   }
@@ -628,7 +627,7 @@ run_Markov <- function(l_params){
     m_T           <- l_params$m_T
     
     # create array containing transition probability matrix
-    a_m_T <- array(NA, dim = c(n_states,n_states,n_t))
+    a_m_T <- array(NA, dim = c(n_states,n_states,n_cycles))
     for(time_i in v_times){ # time_i = 1
       a_m_T[ , , time_i] <- m_T
     }
@@ -727,7 +726,7 @@ plot(x = df_trace$time[df_trace$var == "Susceptible"],
      y = df_trace$value[df_trace$var == "Susceptible"],
      col = "forestgreen",
      type = "l", 
-     xlab = "Time (years)", 
+     xlab = "Time", 
      ylab = "Prop. of people",
      xlim = c(0,20))
 lines(x = df_trace$time[df_trace$var == "Vaccinated"],
