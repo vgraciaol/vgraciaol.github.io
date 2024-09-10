@@ -8,6 +8,9 @@ execute:
 format:
     html: 
       toc: true
+      grid:      
+        body-width: 1300px
+        sidebar-width: 10px
 filters:
   - webr
 ---
@@ -106,7 +109,7 @@ m_D
 
 If there is insufficient data to fill a matrix as specified by the user, the values will be **recycled**. This is important to note as it will not give an error, but a warning, and the matrix can still be used in other operations.
 
-#### Sub-setting
+**Sub-setting**
 
 We can subset values from a matrix by indicating `matrix_name[row,column]`.
 
@@ -120,10 +123,18 @@ m_C[,3]               # third column, all rows
 m_C["row2","column3"] # second row, third column
 ```
 
-#### Operations with matrices
+**Operations with matrices**
 
 -   `t()` transpose of a matrix.
 
+    ```{webr-r}
+    # Transpose
+    t(m_D[,3])
+    ```
+
+```{=html}
+<!-- -->
+```
 -   `diag()` extract or replace the diagonal of a matrix, or construct a diagonal matrix.
 
     ```{webr-r}
@@ -133,9 +144,27 @@ m_C["row2","column3"] # second row, third column
 
 -   Equally sized matrices can be added and subtracted.
 
+    ```{webr-r}
+    # Sum 
+    m_B + m_B
+    m_C - m_C
+    ```
+
 -   `%*%` matrix multiplication same number of columns and rows.
 
+    ```{webr-r}
+    t(m_A)%*%m_A
+    ```
+
 -   `solve()` returns the inverse of a matrix.
+
+    ```{webr-r}
+    m_A <- matrix(data = c(-3, 2, 83, 0.15), 
+                  nrow = 2,
+                  ncol = 2)
+
+    solve(m_A)
+    ```
 
 ### Arrays
 
@@ -488,7 +517,7 @@ where, $S(0)$ is the vector of the probabilities of being in each state at the b
 
 -   Five mutually exclusive health states: susceptible (**S**), infected (**I**), vaccinated (**V**), recovered (**R**), and dead (**D**).
 
-![State transition diagram](fig_SIVRD_model.png){fig-align="center" width="13cm"}
+![State transition diagram](fig_SIVRD_model.png){fig-align="center" width="15cm"}
 
 -   Cycle length 1 year.
 -   Time horizon 59 years (*lifetime horizon*).
