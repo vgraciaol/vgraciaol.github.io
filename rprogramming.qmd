@@ -30,7 +30,7 @@ The following sections use several coding examples and follow the same structure
 
 ## Matrices and arrays
 
-A **matrix** is a powerful tool, featuring a rectangular arrangement of numbers, symbols, or expressions in rows and columns.
+A **matrix** is a powerful tool, featuring a rectangular arrangement of numbers, symbols, or expressions in rows and columns. For example,
 
 $$
 A = \begin{bmatrix}
@@ -42,18 +42,19 @@ $$
 
 $A$ is a matrix with 3 rows and 2 columns, usually said to be a $3 \times 2$ matrix.
 
-Matrices are useful for organizing (numeric) data based on individuals (rows) and attributes (columns). For example, imagine you have the age, sex, and years of schooling for three people:
+Matrices are useful for organizing (numeric) data based on individuals (rows) and attributes (columns). For instance, imagine you have the age, sex, and years of schooling for three people:
 
 ```{r}
 #| echo: false
 
-df <- data.frame(Age  = c(48,34,56),
+df <- data.frame(Ind = 1:3,
+                 Age  = c(48,34,56),
                  Male = c(1,0,1),
                  Sch_yr = c(10,9,12))
            
 
 knitr::kable(df, format = "html", 
-             col.names = c("Age","Male","Years of schooling"),
+             col.names = c("Ind","Age","Male","Years of schooling"),
              align = c("c","c","c"))
 ```
 
@@ -86,6 +87,7 @@ The `matrix()` function in `R` has the following arguments:
 Let's create a $2 \times 2$ matrix:
 
 ```{webr-r}
+# Create a 2x2 matrix
 m_A <- matrix(data = c(-3, 2, 83, 0.15), 
               nrow = 2,
               ncol = 2)
@@ -101,6 +103,8 @@ Note how `R` filled the matrix column-by-column since by default `byrow = FALSE`
 What happens if you don't specify the `nrow` and `ncol` arguments?
 
 ```{webr-r}
+# Create a matrix without specifying 
+# ncol and nrow
 m_A <- matrix(data = c(-3, 2, 83, 0.15, 7))
 
 # Get matrix
@@ -114,7 +118,7 @@ If `nrow` and `ncol` are not specified default is a single-column matrix.
 Let's change the `byrow` argument to `TRUE`.
 
 ```{webr-r}
-# 2x2 matrix
+# 2x2 matrix, byrow = TRUE
 m_A <- matrix(data  = c(-3, 2, 83, 0.15), 
               nrow  = 2,
               ncol  = 2,
@@ -131,7 +135,8 @@ Note that the matrix's first row was filled out before moving on to the next one
 Let's create a $2 \times 3$ matrix whose row and column names are indicated using `dimnames`.
 
 ```{webr-r}
-# 2x3 matrix
+# 2x3 matrix, filled by row 
+# indicating row and column names
 m_C <- matrix(data  = 4:9,
               nrow  = 2,
               ncol  = 3,
@@ -240,7 +245,7 @@ m_C["r2","c3"]   # second row, third column
     diag(m_I) <- c(3,90)
     m_I
 
-    # Diagonal matrix
+    # Construct a diagonal matrix
     diag(x = c(2,3,4), nrow = 3)
     ```
 
@@ -295,7 +300,7 @@ m_C["r2","c3"]   # second row, third column
 
 ### Arrays
 
-Arrays are similar to matrices but can have more than 2 dimensions.
+Matrices are a special kind of two-dimensional arrays. If you want to create objects with more dimensions, `array()` is a useful function.
 
 **Example 1**
 
@@ -393,9 +398,13 @@ if (c(T,T,F,F,T)){
 
 **Example 3**
 
-Nested `if-else` statements.
+You can use nested `if-else` if you want to evaluate more than one statement.
 
 ```{webr-r}
+# Example: you have the GPA of four 
+# students and you want to get it using 
+# a series of if-else statements
+
 # String
 str1 <- "Matt"
 
@@ -474,8 +483,8 @@ ifelse(test = a == 4,
 A loop that prints the index of the current loop.
 
 ```{webr-r}
-for(i in 1:10){
-  cat("The current loop index is", i, "\n")
+for(iter_i in 1:10){
+  cat("The current loop index is", iter_i, "\n")
 }
 ```
 
@@ -518,6 +527,7 @@ When you do not know how often the desired operations should be executed, you ca
 Let's create a code that calculates the factorial of any number.
 
 ```{webr-r}
+# Get the factorial of any number
 # Number
 a <- 6
 
@@ -552,6 +562,7 @@ factorial_value
 A function that simply assigns three different objects.
 
 ```{webr-r}
+# Function that assigns three objects
 dummy1 <- function(){
   aa <- 2.5
   bb <- "string"
@@ -570,6 +581,7 @@ Note that even if you run the function, trying to get the element `aa` does not 
 However, what happens if you run `bn <- dummy1()` and then get the object `bn`?
 
 ```{webr-r}
+# Function that assigns three objects
 dummy1 <- function(){
   aa <- 2.5
   bb <- "string"
@@ -590,6 +602,7 @@ Note that a function that does not have a `return()` technically returns nothing
 But how many `return()` can a function have? See the following example of a function with multiple returns.
 
 ```{webr-r}
+# Function with two return()
 dummy2 <- function(){
   aa <- 2.5
   bb <- "string1"
@@ -610,7 +623,7 @@ A function with arguments.
 
 ```{webr-r}
 # Get the sum of two numbers
-# if a and b are number then return the sum
+# if a and b are numbers then return the sum
 # otherwise, return NA
 get_sum <- function(a,b){
   if(is.numeric(a) & is.numeric(b)){
@@ -643,6 +656,8 @@ myplot_fun <- function(x,y,...){
     message("Error: vectors must be the same length")
   }
   else{
+    # If the lengths x and y are equal, graph them 
+    # and add more arguments using ...
     plot(x,y,...)
   }
 }
@@ -659,9 +674,9 @@ myplot_fun(x = c(1,2,3,4),
 # Run the function with other arguments
 myplot_fun(x = c(1,2,3,4), 
            y = c(5,6,7,8),
-           main = "Plot in a function",
-           col  = "red",
-           xlab = "x-axis",
+           main = "Plot in a function", 
+           col  = "red",                
+           xlab = "x-axis",            
            ylab = "y-axis")
 ```
 
@@ -677,9 +692,9 @@ This section is based on @drabo2023 and follows the same example of hepatitis B.
 
 -   Health (e.g., life years, quality of life years) and economic (e.g., vaccination costs) outcomes can be estimated for each strategy considered.
 
--   Markov models depict how individuals move between health states based on their previous state probabilities.
+-   Markov models represent how individuals in a cohort move between health states based on their probabilities of previous states.
 
--   *Markov assumption*: all states are independent of all pasts states.
+-   *Markov assumption*: all states are independent of all past states.
 
 ### Elements
 
@@ -713,7 +728,7 @@ where, $S(0)$ is the vector of the probabilities of being in each state at the b
 5.  Set of rewards or payoffs (e.g., cost of benefits) associated to each state.
 6.  If an individual is unable to leave a state once they enter it (e.g., dead), that state is considered to be an *absorbing* state, and any non-absorbing state is called *transient*.
 
-### Example: hepatitis B
+### Example: hepatitis B vaccine
 
 -   Five mutually exclusive health states: susceptible (**S**), infected (**I**), vaccinated (**V**), recovered (**R**), and dead (**D**).
 
@@ -725,13 +740,15 @@ where, $S(0)$ is the vector of the probabilities of being in each state at the b
     -   The proportion of susceptible people getting vaccinated each cycle is 0.10.
     -   70% of susceptible people become infected each year.
     -   0.0045% of the vaccinated individuals lose protection from the vaccine.
-    -   7 out of 8 people with hepatitis C recover.
+    -   7 out of 8 people with hepatitis B recover.
     -   The probability of death is 0.002 for susceptible, vaccinated, and recovered individuals, and 0.006 for infected individuals.
     -   Susceptible cohort population.
 
 #### Steps into developing a model in `R`
 
-1.  *Parameterization of the model.* We will create a function that takes the model inputs as arguments and returns a list containing all the model parameters.
+1.  **Parameterization of the model.**
+
+    We will create a function that takes the model inputs as arguments and returns a list containing all the model parameters.
 
 ```{webr-r}
 # List of model parameters
@@ -817,9 +834,13 @@ load_params_all <- function(n_t,
   }
 ```
 
-2.  *Markov model function*: Now that we have a function that collects all the model inputs into a list, let's create a function that takes the model parameters and returns the distribution of health states at each step.
+2.  **Markov model function**.
+
+    Now that we have a function that collects all the model inputs into a list, let's create a function that takes the model parameters and returns the distribution of health states at each step.
 
 ```{webr-r}
+# Function that takes the model parameters
+# and returns the distribution of health states
 run_Markov <- function(l_params){
   
     # Get all the parameters from the list
@@ -874,7 +895,9 @@ run_Markov <- function(l_params){
 }
 ```
 
-3.  *Simulation*: We run the Markov model with the specific model inputs.
+3.  **Simulation**:
+
+    We run the Markov model with the specific model inputs.
 
 ```{webr-r}
 # Time horizon
@@ -915,7 +938,7 @@ l_params_all <- load_params_all(n_t          = n_t,
 m_trace <- run_Markov(l_params = l_params_all)
 ```
 
-4.  *Plot health states*
+4.  **Plot health states**
 
 ```{webr-r}
 # Create data.frame with results
@@ -957,6 +980,6 @@ lines(x = df_trace$time[df_trace$var == "Recovered"],
 lines(x = df_trace$time[df_trace$var == "Dead"],
      y = df_trace$value[df_trace$var == "Dead"],
      col = "black")
-title("Hepatitis C cohort distribution")
+title("Hepatitis B cohort distribution")
 
 ```
