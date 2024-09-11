@@ -53,7 +53,8 @@ df <- data.frame(Age  = c(48,34,56),
            
 
 knitr::kable(df, format = "html", 
-             col.names = c("Age","Male","Years of schooling"))
+             col.names = c("Age","Male","Years of schooling"),
+             align = c("c","c","c"))
 ```
 
 This information can then be represented by a $3 \times 3$ matrix:
@@ -113,14 +114,14 @@ If `nrow` and `ncol` are not specified default is a single-column matrix.
 Let's change the `byrow` argument to `TRUE`.
 
 ```{webr-r}
-# 2x5 matrix
-m_B <- matrix(data  = 1:15,
-              nrow  = 3,
-              ncol  = 5,
+# 2x2 matrix
+m_A <- matrix(data  = c(-3, 2, 83, 0.15), 
+              nrow  = 2,
+              ncol  = 2,
               byrow = TRUE)
 
 # Get matrix
-m_B
+m_A
 ```
 
 Note that the matrix's first row was filled out before moving on to the next one.
