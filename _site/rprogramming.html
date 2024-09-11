@@ -7,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valeria Gracia Olvera">
+<meta name="dcterms.date" content="2024-09-11">
+<meta name="description" content="Interactive Quarto Document using webR">
 
-<title>R programming – Valeria Gracia Olvera’s GitHub page</title>
+<title>Learning R – Valeria Gracia Olvera’s GitHub page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -357,7 +379,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-1","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"m_A <- matrix(data = c(-3, 2, 83, 0.15), \n              nrow = 2,\n              ncol = 2)\n\n# Get matrix\nm_A","id":1},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-2","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"m_A <- matrix(data = c(-3, 2, 83, 0.15))\n\n# Get matrix\nm_A","id":2},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-3","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"m_B <- matrix(data  = 1:6,\n              nrow  = 2,\n              ncol  = 3,\n              byrow = TRUE)\n\n# Get matrix\nm_B","id":3},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-4","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"m_C <- matrix(data  = 4:9,\n              nrow  = 2,\n              ncol  = 3,\n              byrow = TRUE,\n              dimnames = list(c(\"row1\",\"row2\"),\n                              c(\"column1\",\"column2\",\"column3\")))\n\n# Get matrix\nm_C","id":4},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-5","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"# Not enough data\nm_D <- matrix(data  = 1:4,\n              nrow  = 2,\n              ncol  = 3)\n\n# Get matrix\nm_D","id":5},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-6","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"m_C[1,]               # first row, all columns\nm_C[,3]               # third column, all rows\nm_C[\"row2\",\"column3\"] # second row, third column","id":6},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-7","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"# Get documentation on diag() function\n?diag ","id":7},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-8","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"a_AR <- array(data = 1:24,\n              dim  = c(3,4,2)) \n\n# Get array\na_AR","id":8},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-9","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"a_BR <- array(data = rep(x     = 1:24, \n                         times = 3),\n              dim  = c(3,4,2,3))\n\n# Get array\na_BR","id":9},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-10","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"a_BR[1,1,1,2]","id":10},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-11","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"#if(condition){\n#  do any code in here if condition is TRUE\n#} else {\n#  do any code in here if condition is FALSE\n#}","id":11},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-12","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"a <- 4\nif(a == 4){\n  cat(\"The condition was\", a == 4)\n  a <- a^2\n}else{\n  cat(\"The condition was\", a == 4)\n  a <- a\n}","id":12},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-13","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"if (c(T,T,F,F,T)) a <- 3","id":13},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-14","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"str1 <- \"Vanessa\"\nif(str1 == \"Noah\"){\n  cal <- 10\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else if(str1 == \"Alex\"){\n  cal <- 9\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else if(str1==\"Matt\"){\n  cal <- 6\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else if(str1 == \"Vanessa\"){\n  cal <- 8\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else{\n  cal <- NA\n  cat(\"That student does not exist.\")\n}","id":14},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-15","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"str1 <- \"Matt\"\ncal <- switch(EXPR    = str1,\n              Noah    = 10,\n              Alex    = 9,\n              Matt    = 6,\n              Vanessa = 8,\n              NA)             # unnamed element in case of no match\n\nif(!is.na(cal)){\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else{\n  cat(\"That student does not exist.\")\n}","id":15},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-16","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"# for(loopindex in loopvector){\n#    do any code in here\n# }","id":16},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-17","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"for(i in 1:10){\n  cat(\"The current loop index is\", i, \"\\n\")\n}","id":17},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-18","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"# Create an empty matrix with four rows and two columns\nm_A <- matrix(data = NA,\n              nrow = 4,\n              ncol = 2)\n\n# Fill out the matrix by multiplying the i-th row and j-th column.\nfor(row_i in 1:nrow(m_A)){\n  for(col_i in 1:ncol(m_A)){\n    m_A[row_i,col_i] <- row_i*col_i\n  }\n}\nm_A","id":18},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-19","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"# while(loopcondition){\n#    do any code in here\n# }","id":19},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-20","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"# Number\na <- 12\n\n# Factorial value\nfactorial_value <- 1\n\n# While loop\nwhile(a >= 0){\n  if(a != 0){\n    factorial_value <- factorial_value*a\n  }\n  a <- a - 1\n}\n\n# Get factorial\nfactorial_value","id":20},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-21","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"# functionname <- function(arg1,arg2,arg3,...){\n#    do any code in here when called\n#    return(returnobject)\n# }","id":21},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-22","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"dummy1 <- function(){\n  aa <- 2.5\n  bb <- \"string\"\n  dd <- 4:8\n}","id":22},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-23","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"dummy2 <- function(){\n  aa <- 2.5\n  bb <- \"string1\"\n  return(aa)\n  dd <- 4:8\n  return(bb)\n}","id":23},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-24","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"get_sum <- function(a,b){\n  if(is.numeric(a) & is.numeric(b)){\n    return(a+b)\n  }\n  else{\n    return(NA)\n  }\n}","id":24},{"options":{"warning":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-25","classes":"","fig-cap":"","message":"true","editor-word-wrap":"true","out-width":"700px","editor-max-height":"","dpi":72,"comment":"","editor-quick-suggestions":"false","context":"interactive"},"code":"myplot_fun <- function(x,y,...){\n  if(length(x) != length(y)){\n    message(\"Error: vectors must be the same length\")\n  }\n  else{\n    plot(x,y,...)\n  }\n}\n\nmyplot_fun(c(1,2,3,4),c(5,6,7,8))\nmyplot_fun(c(1,2,3,4),c(5,6,7))\nmyplot_fun(x = c(1,2,3,4), \n           y = c(5,6,7,8),\n           main = \"Plot in a function\",\n           col  = \"red\",\n           xlab = \"x-axis\",\n           ylab = \"y-axis\")","id":25}];
+globalThis.qwebrCellDetails = [{"code":"m_A <- matrix(data = c(-3, 2, 83, 0.15), \n              nrow = 2,\n              ncol = 2)\n\n# Get matrix\nm_A","id":1,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-1","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"m_A <- matrix(data = c(-3, 2, 83, 0.15, 7))\n\n# Get matrix\nm_A","id":2,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-2","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# 2x5 matrix\nm_B <- matrix(data  = 1:6,\n              nrow  = 3,\n              ncol  = 5,\n              byrow = TRUE)\n\n# Get matrix\nm_B","id":3,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-3","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# 2x3 matrix\nm_C <- matrix(data  = 4:9,\n              nrow  = 2,\n              ncol  = 3,\n              byrow = TRUE,\n              dimnames = list(c(\"row1\",\"row2\"),                  # vector of row names\n                              c(\"column1\",\"column2\",\"column3\"))) # vector of column names\n\n# Get matrix\nm_C","id":4,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-4","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# 2x3 matrix\nm_D <- matrix(data  = 1:4,         # 4 data points to fill a 2x3 matrix\n              nrow  = 2,\n              ncol  = 3)\n\n# Get matrix\nm_D","id":5,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-5","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# 2x3 matrix\nm_C <- matrix(data  = 4:9,\n              nrow  = 2,\n              ncol  = 3,\n              byrow = TRUE,\n              dimnames = list(c(\"row1\",\"row2\"),                  # vector of row names\n                              c(\"column1\",\"column2\",\"column3\"))) # vector of column names\n\n# Get matrix\nm_C\n\n# Subset\nm_C[1,]                 # first row, all columns\nm_C[,3]                 # third column, all rows\nm_C[\"row2\",\"column3\"]   # second row, third column","id":6,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-6","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# 2x3 matrix\nm_D <- matrix(data  = 1:4,         # 4 data points to fill a 2x3 matrix\n              nrow  = 2,\n              ncol  = 3)\n\n# Subset a matrix from m_D\nm_D[,2:3]                          # all rows, second and third colum (2x2 matrix)\n\n# Transpose\nt(m_D[,2:3])","id":7,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-7","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# Construct a 2x2 identity matrix\nm_I <- diag(nrow = 2)\nm_I\n\n# Get the diagonal of a matrix\nm_A <- matrix(data = c(-3, 2, 83, 0.15), \n              nrow = 2,\n              ncol = 2)\nm_A\ndiag(m_A)\n\n# Replace the diagonal of a matrix\ndiag(m_I) <- c(3,90)\nm_I\n\n# Diagonal matrix\ndiag(x = c(2,3,4), nrow = 3)","id":8,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-8","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# 2x2 diagonal matrix\nm_E <- diag(x = c(2,-8), nrow = 2)\nm_E\n\n# 2x2 matrix\nm_F <- matrix(data = seq(5,20, by = 5), \n              nrow = 2,\n              ncol = 2)\nm_F\n\n# 4x1 matrix\nm_G <- matrix(c(24,9,0,4))\n\n# Operations \nm_E + m_F\nm_F - m_F\nm_E + m_G         # error","id":9,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-9","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"m_A <- matrix(data = c(-3, 2, 83, 0.15))\nt(m_A)     # transpose\nm_A\n\n# Check that t(m_A) has the same number of rows \n# as m_A has columns\nncol(t(m_A)) == nrow(m_A)\n\n# Matrix multiplication\nt(m_A)%*%m_A","id":10,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-10","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"m_A <- matrix(data = c(-3, 2, 83, 0.15), \n              nrow = 2,\n              ncol = 2)\n\nsolve(m_A)","id":11,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-11","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"a_AR <- array(data = 1:24,\n              dim  = c(3,4,2)) \n\n# Get array\na_AR","id":12,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-12","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"a_BR <- array(data = rep(x     = 1:24, \n                         times = 3),\n              dim  = c(3,4,2,3))\n\n# Get array\na_BR","id":13,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-13","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"a_BR <- array(data = rep(x     = 1:24, \n                         times = 3),\n              dim  = c(3,4,2,3))\n\na_BR\n\n# Get the 3rd row, 4th column of the first element of the \n# first layer, of the third element of the second layer\na_BR[3,4,1,3]","id":14,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-14","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# if(condition){\n#   do any code in here if condition is TRUE\n# } else {\n#   do any code in here if condition is FALSE\n# }","id":15,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-15","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# Number\na <- 4\n\n# if-else\nif(a == 4){\n  cat(\"The condition was\", a == 4,\"\\n\")       # \\n creates an new line\n  a <- a^2\n}else{\n  cat(\"The condition was\", a != 4,\"\\n\")\n  a <- a\n}\n\n# Get value of a\na","id":16,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-16","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# Number\na <- 4\n\n# if-else\nif (c(T,T,F,F,T)){         # error\n  a <- 3\n}else{\n  a <- 5\n}","id":17,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-17","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# String\nstr1 <- \"Vanessa\"\n\n# Nested if-else\nif(str1 == \"Noah\"){\n  cal <- 10\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else if(str1 == \"Alex\"){\n  cal <- 9\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else if(str1 == \"Matt\"){\n  cal <- 6\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else if(str1 == \"Vanessa\"){\n  cal <- 8\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else{\n  cal <- NA\n  cat(\"That student does not exist.\")\n}","id":18,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-18","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# String\nstr1 <- \"Matt\"\n\n# switch() function\ncal <- switch(EXPR    = str1,\n              Noah    = 10,\n              Alex    = 9,\n              Matt    = 6,\n              Vanessa = 8,\n              NA)             # unnamed element in case of no match\n\n# Result\nif(!is.na(cal)){\n  cat(paste0(str1,\"'s GPA is \", cal, \".\"))\n}else{\n  cat(\"That student does not exist.\")\n}","id":19,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-19","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# If the number is 4, then let's square it; \n# otherwise, let's return the same number.\n\n# Number\na <- 5\n\n# ifelse()\nifelse(test = a == 4, \n       yes  = a^2, \n       no   = a)","id":20,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-20","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# for(loopindex in loopvector){\n#    do any code in here\n# }","id":21,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-21","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"for(i in 1:10){\n  cat(\"The current loop index is\", i, \"\\n\")\n}","id":22,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-22","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# Create an empty matrix with four rows and two columns\nm_A <- matrix(data = NA,\n              nrow = 4,\n              ncol = 2)\n\n# Fill out the matrix by multiplying the i-th row and j-th column.\n# Nested for loops.\nfor(row_i in 1:nrow(m_A)){\n  for(col_i in 1:ncol(m_A)){\n    m_A[row_i,col_i] <- row_i*col_i\n  }\n}\nm_A","id":23,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-23","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# while(loopcondition){\n#    do any code in here\n# }","id":24,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-24","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# Number\na <- 6\n\n# Factorial value\nfactorial_value <- 1\n\n# While loop\nwhile(a >= 0){\n  if(a != 0){\n    factorial_value <- factorial_value*a\n  }\n  a <- a - 1\n}\n\n# Get factorial\nfactorial_value","id":25,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-25","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# functionname <- function(arg1,arg2,arg3,...){\n#    do any code in here when called\n#    return(returnobject)\n# }","id":26,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-26","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"dummy1 <- function(){\n  aa <- 2.5\n  bb <- \"string\"\n  dd <- 4:8\n}\n\n# Execute function\ndummy1()","id":27,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-27","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"dummy2 <- function(){\n  aa <- 2.5\n  bb <- \"string1\"\n  return(aa)\n  dd <- 4:8\n  return(bb)\n}\n\n# Execute function\ndummy2()","id":28,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-28","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"get_sum <- function(a,b){\n  if(is.numeric(a) & is.numeric(b)){\n    return(a+b)\n  }\n  else{\n    return(NA)\n  }\n}\n\n# Execute function\nget_sum(4,5)\nget_sum(\"a\",5)","id":29,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-29","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"myplot_fun <- function(x,y,...){\n  if(length(x) != length(y)){\n    message(\"Error: vectors must be the same length\")\n  }\n  else{\n    plot(x,y,...)\n  }\n}\n\nmyplot_fun(c(1,2,3,4),c(5,6,7,8))\nmyplot_fun(c(1,2,3,4),c(5,6,7))\nmyplot_fun(x = c(1,2,3,4), \n           y = c(5,6,7,8),\n           main = \"Plot in a function\",\n           col  = \"red\",\n           xlab = \"x-axis\",\n           ylab = \"y-axis\")","id":30,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-30","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# List of model parameters\n# n_t: time horizon\n# cycle_len: cycle length\n# v_state_init: vector of initial health states\n# p_S_V: transition prob. from susceptible to vaccinated.\n# p_S_I: transition prob. from susceptible to infected.\n# p_S_D: transition prob. from susceptible to dead.\n# p_V_I: transition prob. from vaccinated to infected.\n# p_V_D: transition prob. from vaccinated to dead.\n# p_I_R: transition prob. from infected to recovered.\n# p_I_D: transition prob. from infected to dead.\n# p_R_D: transition prob. from recovered to dead.\nload_params_all <- function(n_t, \n                            cycle_len,\n                            v_state_init,\n                            p_S_V,\n                            p_S_I,\n                            p_S_D,\n                            p_V_I,\n                            p_V_D,\n                            p_I_R,\n                            p_I_D,\n                            p_R_D){\n  \n    # Health states\n    v_state_names <- names(v_state_init)\n    n_states <- length(v_state_names)  # number of health states\n    \n    # Vector of times to which the model will be evaluated\n    n_cycles <- n_t/cycle_len \n    v_times  <- seq(0, n_cycles, by = 1)\n  \n    # Transition matrix\n    m_T <- matrix(data     = 0,\n                  nrow     = n_states,\n                  ncol     = n_states,\n                  dimnames = list(v_state_names, \n                                  v_state_names))\n  \n    # Fill out the transition matrix with the information\n    # Susceptible\n    m_T[\"S\",\"V\"] <- p_S_V\n    m_T[\"S\",\"I\"] <- p_S_I\n    m_T[\"S\",\"D\"] <- p_S_D\n    m_T[\"S\",\"S\"] <- 1 - sum(m_T[\"S\",c(\"V\",\"I\",\"R\",\"D\")])\n    \n    # Vaccinated\n    m_T[\"V\",\"I\"] <- p_V_I\n    m_T[\"V\",\"D\"] <- p_V_D\n    m_T[\"V\",\"V\"] <- 1 - sum(m_T[\"V\",c(\"S\",\"I\",\"R\",\"D\")])\n    \n    # Infected\n    m_T[\"I\",\"R\"] <- p_I_R\n    m_T[\"I\",\"D\"] <- p_I_D\n    m_T[\"I\",\"I\"] <- 1 - sum(m_T[\"I\",c(\"S\",\"V\",\"R\",\"D\")])\n    \n    # Recovered\n    m_T[\"R\",\"D\"] <- p_R_D\n    m_T[\"R\",\"R\"] <- 1 - sum(m_T[\"R\",c(\"S\",\"V\",\"I\",\"D\")])\n    \n    # Dead\n    m_T[\"D\",\"D\"] <- 1 - sum(m_T[\"D\",c(\"S\",\"V\",\"I\",\"R\")])\n    \n    # Create a list with all the model parameters\n    l_params_all <- list(n_t           = n_t,\n                         cycle_len     = cycle_len,\n                         n_cycles      = n_cycles,\n                         v_times       = v_times,\n                         v_state_names = v_state_names,\n                         n_states      = n_states,\n                         v_state_init  = v_state_init,\n                         m_T           = m_T)\n    \n    return(l_params_all)\n  }","id":31,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-31","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"run_Markov <- function(l_params){\n  \n    # Get all the parameters from the list\n    n_t           <- l_params$n_t          \n    cycle_len     <- l_params$cycle_len\n    n_cycles      <- l_params$n_cycles\n    v_times       <- l_params$v_times\n    v_state_names <- l_params$v_state_names\n    n_states      <- l_params$n_states\n    v_state_init  <- l_params$v_state_init\n    m_T           <- l_params$m_T\n    \n    # create array containing transition probability matrix\n    a_m_T <- array(NA, dim = c(n_states,n_states,n_cycles))\n    for(time_i in v_times){ # time_i = 1\n      a_m_T[ , , time_i] <- m_T\n    }\n    \n    # create the transition trace matrix (m_TR) capturing the proportion of the cohort in each state at each time point\n    m_TR <-  matrix(0, nrow = n_cycles + 1, ncol = n_states, \n                    dimnames = list( paste(\"cycle\", 0:n_cycles, sep = \"\"), \n                                     v_state_names))\n    \n    # indicate the initial health state\n    m_TR[1, ]  <- v_state_init\n    \n    # run the simulation \n    for (time_i in 2:(n_cycles + 1)){ # i = 2\n      # calculate the proportion of the cohort in each state at time t\n      m_TR[time_i, ] <- t(m_TR[time_i - 1, ]) %*% a_m_T[ , , time_i-1]\n    } # close the loop for the individuals \n    \n    return(m_TR)  # return the results\n  \n}","id":32,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-32","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# Time horizon\nn_t <- 59             # lifetime horizon\ncycle_len <- 1        # 1 year\ncohort_age <- 20      # Age of the population\n\n# Utilities\nv_utility <- c(S = 1.00,\n               V = 1.00,\n               I = 0.75,\n               R = 1.00,\n               D = 0.00)\n\n# Initial state\nv_state_init <- c(S = 1, \n                  V = 0, \n                  I = 0, \n                  R = 0, \n                  D = 0)  \n\n# Transition probabilities\nprob_S_V <- 0.1\nprob_S_I <- 0.7\nprob_S_D <- 0.002\nprob_V_I <- 0.0045/100\nprob_V_D <- 0.002\nprob_I_R <- 7/8\nprob_I_D <- 0.006\nprob_R_D <- 0.002\n\n# Load list of parameters\nl_params_all <- load_params_all(n_t          = n_t, \n                                cycle_len    = cycle_len,\n                                v_state_init = v_state_init,\n                                p_S_V        = prob_S_V,\n                                p_S_I        = prob_S_I,\n                                p_S_D        = prob_S_D,\n                                p_V_I        = prob_V_I,\n                                p_V_D        = prob_V_D,\n                                p_I_R        = prob_I_R,\n                                p_I_D        = prob_I_D,\n                                p_R_D        = prob_R_D)\n\n# Run the Markov model\nm_trace <- run_Markov(l_params = l_params_all)","id":33,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-33","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}},{"code":"# Create data.frame with results\ndf_trace <- rbind(data.frame(time  = l_params_all$v_times,\n                             var   = \"Susceptible\",\n                             value = as.numeric(m_trace[,\"S\"])),\n                  data.frame(time  = l_params_all$v_times,\n                             var   = \"Vaccinated\",\n                             value = as.numeric(m_trace[,\"V\"])),\n                  data.frame(time  = l_params_all$v_times,\n                             var   = \"Infected\",\n                             value = as.numeric(m_trace[,\"I\"])),\n                  data.frame(time  = l_params_all$v_times,\n                             var   = \"Recovered\",\n                             value = as.numeric(m_trace[,\"R\"])),\n                  data.frame(time  = l_params_all$v_times,\n                             var   = \"Dead\",\n                             value = as.numeric(m_trace[,\"D\"])))\n\n# Plot results\nplot(x = df_trace$time[df_trace$var == \"Susceptible\"],\n     y = df_trace$value[df_trace$var == \"Susceptible\"],\n     col = \"forestgreen\",\n     type = \"l\", \n     xlab = \"Time\", \n     ylab = \"Prop. of people\",\n     xlim = c(0,20))\nlines(x = df_trace$time[df_trace$var == \"Vaccinated\"],\n     y = df_trace$value[df_trace$var == \"Vaccinated\"],\n     col = \"purple\")\nlines(x = df_trace$time[df_trace$var == \"Infected\"],\n     y = df_trace$value[df_trace$var == \"Infected\"],\n     col = \"red\")\nlines(x = df_trace$time[df_trace$var == \"Recovered\"],\n     y = df_trace$value[df_trace$var == \"Recovered\"],\n     col = \"steelblue\")\nlines(x = df_trace$time[df_trace$var == \"Dead\"],\n     y = df_trace$value[df_trace$var == \"Dead\"],\n     col = \"black\")\ntitle(\"Hepatitis C cohort distribution\")","id":34,"options":{"fig-cap":"","out-height":"","editor-font-scale":"1","autorun":"false","context":"interactive","classes":"","dpi":72,"comment":"","warning":"true","results":"markup","message":"true","read-only":"false","label":"unnamed-chunk-34","out-width":"700px","output":"true","fig-height":5,"editor-quick-suggestions":"false","fig-width":7,"editor-max-height":"","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -1555,6 +1577,35 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -1582,7 +1633,7 @@ globalThis.qwebrExecuteCode = async function (
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./rprogramming.html" aria-current="page"> 
-<span class="menu-text">R programming</span></a>
+<span class="menu-text">Learning R</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -1600,54 +1651,29 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#matrices-and-arrays" id="toc-matrices-and-arrays" class="nav-link active" data-scroll-target="#matrices-and-arrays">Matrices and arrays</a>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link active" data-scroll-target="#r-basics">R basics</a>
   <ul class="collapse">
-  <li><a href="#matrix" id="toc-matrix" class="nav-link" data-scroll-target="#matrix">Matrix</a>
+  <li><a href="#matrices-and-arrays" id="toc-matrices-and-arrays" class="nav-link" data-scroll-target="#matrices-and-arrays">Matrices and arrays</a>
   <ul class="collapse">
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
-  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
-  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
-  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example 5</a></li>
-  </ul></li>
-  <li><a href="#sub-setting" id="toc-sub-setting" class="nav-link" data-scroll-target="#sub-setting">Sub-setting</a></li>
-  <li><a href="#operations-with-matrices" id="toc-operations-with-matrices" class="nav-link" data-scroll-target="#operations-with-matrices">Operations with matrices</a></li>
-  <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays">Arrays</a>
-  <ul class="collapse">
-  <li><a href="#example-1-1" id="toc-example-1-1" class="nav-link" data-scroll-target="#example-1-1">Example 1</a></li>
-  <li><a href="#example-2-1" id="toc-example-2-1" class="nav-link" data-scroll-target="#example-2-1">Example 2</a></li>
-  <li><a href="#sub-setting-1" id="toc-sub-setting-1" class="nav-link" data-scroll-target="#sub-setting-1">Sub-setting</a></li>
-  </ul></li>
+  <li><a href="#matrix" id="toc-matrix" class="nav-link" data-scroll-target="#matrix">Matrix</a></li>
+  <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays">Arrays</a></li>
   </ul></li>
   <li><a href="#conditionals-and-loops" id="toc-conditionals-and-loops" class="nav-link" data-scroll-target="#conditionals-and-loops">Conditionals and loops</a>
   <ul class="collapse">
-  <li><a href="#if-else-statement" id="toc-if-else-statement" class="nav-link" data-scroll-target="#if-else-statement"><code>if-else</code> statement</a>
-  <ul class="collapse">
-  <li><a href="#example-1-2" id="toc-example-1-2" class="nav-link" data-scroll-target="#example-1-2">Example 1</a></li>
-  <li><a href="#example-2-2" id="toc-example-2-2" class="nav-link" data-scroll-target="#example-2-2">Example 2</a></li>
-  <li><a href="#example-3-1" id="toc-example-3-1" class="nav-link" data-scroll-target="#example-3-1">Example 3</a></li>
-  <li><a href="#example-4-1" id="toc-example-4-1" class="nav-link" data-scroll-target="#example-4-1">Example 4</a></li>
+  <li><a href="#if-else-statement" id="toc-if-else-statement" class="nav-link" data-scroll-target="#if-else-statement"><code>if-else</code> statement</a></li>
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops"><code>for</code> loops</a></li>
+  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops"><code>while</code> loops</a></li>
   </ul></li>
-  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops"><code>for</code> loops</a>
-  <ul class="collapse">
-  <li><a href="#example-1-3" id="toc-example-1-3" class="nav-link" data-scroll-target="#example-1-3">Example 1</a></li>
-  <li><a href="#example-2-3" id="toc-example-2-3" class="nav-link" data-scroll-target="#example-2-3">Example 2</a></li>
+  <li><a href="#writing-functions" id="toc-writing-functions" class="nav-link" data-scroll-target="#writing-functions">Writing functions</a></li>
   </ul></li>
-  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops"><code>while</code> loops</a>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
   <ul class="collapse">
-  <li><a href="#example-1-4" id="toc-example-1-4" class="nav-link" data-scroll-target="#example-1-4">Example 1</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#writing-functions" id="toc-writing-functions" class="nav-link" data-scroll-target="#writing-functions">Writing functions</a>
+  <li><a href="#markov-models" id="toc-markov-models" class="nav-link" data-scroll-target="#markov-models">Markov models</a>
   <ul class="collapse">
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
-  <ul class="collapse">
-  <li><a href="#example-1-5" id="toc-example-1-5" class="nav-link" data-scroll-target="#example-1-5">Example 1</a></li>
-  <li><a href="#example-2-4" id="toc-example-2-4" class="nav-link" data-scroll-target="#example-2-4">Example 2</a></li>
-  <li><a href="#example-3-2" id="toc-example-3-2" class="nav-link" data-scroll-target="#example-3-2">Example 3</a></li>
-  <li><a href="#example-4-2" id="toc-example-4-2" class="nav-link" data-scroll-target="#example-4-2">Example 4</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#elements" id="toc-elements" class="nav-link" data-scroll-target="#elements">Elements</a></li>
+  <li><a href="#example-hepatitis-b" id="toc-example-hepatitis-b" class="nav-link" data-scroll-target="#example-hepatitis-b">Example: hepatitis B</a></li>
   </ul></li>
-  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1941,9 +1967,14 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R programming</h1>
+<h1 class="title">Learning R</h1>
 </div>
 
+<div>
+  <div class="description">
+    Interactive Quarto Document using webR
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -1955,6 +1986,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 11, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1964,16 +2001,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p><em>References</em>:</p>
-<ul>
-<li><p>Davies, T. M. (2016). The book of R : a first course in programming and statistics. No Starch Press, San Francisco, CA, USA, 1st edition.</p></li>
-<li><p><code>webR</code> extension for Quarto: <a href="https://github.com/coatless/quarto-webr">GitHub repository</a></p></li>
-</ul>
-<section id="matrices-and-arrays" class="level1">
-<h1>Matrices and arrays</h1>
-<section id="matrix" class="level2">
-<h2 class="anchored" data-anchor-id="matrix">Matrix</h2>
-<p>The <code>matrix</code> function have the following arguments:</p>
+<p><strong>NOTE:</strong> The code in this document has been created following the coding recommendations in <span class="citation" data-cites="alarid-escudero2019">Alarid-Escudero et al. (<a href="#ref-alarid-escudero2019" role="doc-biblioref">2019</a>)</span>.</p>
+<section id="r-basics" class="level1">
+<h1>R basics</h1>
+<p>The following sections use several coding examples and follow the same structure as <span class="citation" data-cites="Davis2016">Davies (<a href="#ref-Davis2016" role="doc-biblioref">2016</a>)</span>.</p>
+<section id="matrices-and-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="matrices-and-arrays">Matrices and arrays</h2>
+<section id="matrix" class="level3">
+<h3 class="anchored" data-anchor-id="matrix">Matrix</h3>
+<p>The <code>matrix</code> function has the following arguments:</p>
 <ul>
 <li><p><code>data</code> in a form of a vector,</p></li>
 <li><p><code>nrow</code> number of rows,</p></li>
@@ -1981,172 +2017,149 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <li><p><code>byrow</code> (logical) default is <code>FALSE</code> meaning that the matrix is filled by columns,</p></li>
 <li><p><code>dimnames</code> a list of two elements containing the row and column names, respectively.</p></li>
 </ul>
-<section id="example-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-1">Example 1</h3>
+<p><strong>Example 1</strong></p>
+<p>Let us create a 2x2 matrix:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Note how <code>R</code> filled the matrix column-by-column since by default <code>byrow = FALSE</code>.</p>
-</section>
-<section id="example-2" class="level3">
-<h3 class="anchored" data-anchor-id="example-2">Example 2</h3>
+<p><strong>Example 2</strong></p>
+<p>What happens if you don’t specify the <code>nrow</code> and <code>ncol</code> arguments?</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>If <code>nrow</code> and <code>ncol</code> are not specified default is a single-column matrix.</p>
-</section>
-<section id="example-3" class="level3">
-<h3 class="anchored" data-anchor-id="example-3">Example 3</h3>
+<p><strong>Example 3</strong></p>
+<p>Let’s change the <code>byrow</code> argument to <code>TRUE</code>.</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Note that the matrix’s first row was filled out before moving on to the next one.</p>
-</section>
-<section id="example-4" class="level3">
-<h3 class="anchored" data-anchor-id="example-4">Example 4</h3>
-<p>A named matrix.</p>
+<p><strong>Example 4</strong></p>
+<p>Let’s create a 2x3 matrix whose row and column names are indicated using <code>dimnames</code>.</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="example-5" class="level3">
-<h3 class="anchored" data-anchor-id="example-5">Example 5</h3>
+<p>Note that <code>dimnames</code> must be specified using a list.</p>
+<p><strong>Example 5</strong></p>
+<p>What if you don’t have enough data to fill the matrix?</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>If there is insufficient data to fill a matrix as specified by the user, the values will be <strong>recycled</strong>. This is important to note as it will not give an error, but a warning, and the matrix can still be used in other operations.</p>
-</section>
-</section>
-<section id="sub-setting" class="level2">
-<h2 class="anchored" data-anchor-id="sub-setting">Sub-setting</h2>
+<p>If there is insufficient data to fill a matrix as specified by the user, the values will be <strong>recycled</strong>. This is important to note as it will not give an error, but a warning, and the <u>matrix can still be used in other operations</u>.</p>
+<p><strong>Sub-setting</strong></p>
 <p>We can subset values from a matrix by indicating <code>matrix_name[row,column]</code>.</p>
+<ul>
+<li><p>If the matrix rows and columns have names the names can be used to subset.</p></li>
+<li><p>If you leave the row (column) value blank, it will extract the entire column (row).</p></li>
+</ul>
+<p><em>Example</em></p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Operations with matrices</strong></p>
 <ul>
-<li>If the matrix rows an columns have names the names can be used to subset.</li>
-</ul>
-<!-- -->
-<ul>
-<li>If you leave the row (column) value blank, it will extract the entire column (row).</li>
-</ul>
-</section>
-<section id="operations-with-matrices" class="level2">
-<h2 class="anchored" data-anchor-id="operations-with-matrices">Operations with matrices</h2>
-<ul>
-<li><p><code>t()</code> transpose of a matrix.</p></li>
-<li><p><code>diag()</code> extract or replace the diagonal of a matrix, or construct a diagonal matrix.</p>
+<li><p><code>t()</code> transpose of a matrix.</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
-<li><p>Equally sized matrices can be added and subtracted.</p></li>
-<li><p><code>%*%</code> matrix multiplication same number of columns and rows.</p></li>
-<li><p><code>solve()</code> returns the inverse of a matrix.</p></li>
+<li><p><code>diag()</code> extract or replace the diagonal of a matrix, or construct a diagonal matrix. <strong>NOTE</strong>: Remember that you can always use <code>?diag</code> to get documentation about the function and its uses.</p>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><p>Equally sized matrices can be added and subtracted.</p>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><p>Matrix multiplication <code>%*%</code>: <code>ncol</code> and <code>nrow</code> can be useful functions that check if two matrices can be multiplied.</p>
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><p><code>solve()</code> returns the inverse of a matrix.</p>
+<div id="qwebr-insertion-location-11"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 </section>
-<section id="arrays" class="level2">
-<h2 class="anchored" data-anchor-id="arrays">Arrays</h2>
+<section id="arrays" class="level3">
+<h3 class="anchored" data-anchor-id="arrays">Arrays</h3>
 <p>Arrays are similar to matrices but can have more than 2 dimensions.</p>
-<section id="example-1-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-1-1">Example 1</h3>
-<p>An array with 3 rows, 4 columns and 2 layers, filled colunm-wise.</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="example-2-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-2-1">Example 2</h3>
-<p>Adding another layer.</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="sub-setting-1" class="level3">
-<h3 class="anchored" data-anchor-id="sub-setting-1">Sub-setting</h3>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-</section>
-</section>
-<section id="conditionals-and-loops" class="level1">
-<h1>Conditionals and loops</h1>
-<section id="if-else-statement" class="level2">
-<h2 class="anchored" data-anchor-id="if-else-statement"><code>if-else</code> statement</h2>
-<p>An If-else statement requires a condition that returns <code>TRUE</code> or <code>FALSE</code>.</p>
-<p><em>Basic structure:</em></p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="example-1-2" class="level3">
-<h3 class="anchored" data-anchor-id="example-1-2">Example 1</h3>
+<p><strong>Example 1</strong></p>
+<p>An array with 3 rows, 4 columns and 2 layers, filled column-wise.</p>
 <div id="qwebr-insertion-location-12"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="example-2-2" class="level3">
-<h3 class="anchored" data-anchor-id="example-2-2">Example 2</h3>
-<p>We can have <code>if-else</code> statements without an <code>else</code>, however, they work only for conditions of <code>length = 1</code>.</p>
+<p><strong>Example 2</strong></p>
+<p>Adding another layer.</p>
 <div id="qwebr-insertion-location-13"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="example-3-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-3-1">Example 3</h3>
-<p>Nesting conditions.</p>
+<section id="sub-setting" class="level4">
+<h4 class="anchored" data-anchor-id="sub-setting">Sub-setting</h4>
 <div id="qwebr-insertion-location-14"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section id="example-4-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-4-1">Example 4</h3>
-<p>The <code>switch</code> function.</p>
+</section>
+</section>
+<section id="conditionals-and-loops" class="level2">
+<h2 class="anchored" data-anchor-id="conditionals-and-loops">Conditionals and loops</h2>
+<section id="if-else-statement" class="level3">
+<h3 class="anchored" data-anchor-id="if-else-statement"><code>if-else</code> statement</h3>
+<p>An If-else statement requires a condition that returns <code>TRUE</code> or <code>FALSE</code>.</p>
+<p><em>Basic structure:</em></p>
 <div id="qwebr-insertion-location-15"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-</section>
-<section id="for-loops" class="level2">
-<h2 class="anchored" data-anchor-id="for-loops"><code>for</code> loops</h2>
-<p><em>Basic structure:</em></p>
+<p><strong>Example 1</strong></p>
+<p>Let’s evaluate a number. If the number is 4, then let’s square it; otherwise, let’s return the same number.</p>
 <div id="qwebr-insertion-location-16"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="example-1-3" class="level3">
-<h3 class="anchored" data-anchor-id="example-1-3">Example 1</h3>
-<p>A loop that prints the index of the current loop.</p>
+<p><strong>Example 2</strong></p>
+<p><code>If-else</code> only works for conditions of <code>length = 1</code>.</p>
 <div id="qwebr-insertion-location-17"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Note</strong>: as a practice, use names for your loop index that ends with <code>_i</code>, for example, <code>iter_i</code>, <code>year_i</code>, and <code>ind_i</code>; this will allow you to differentiate between the loop index and your other objects.</p>
-</section>
-<section id="example-2-3" class="level3">
-<h3 class="anchored" data-anchor-id="example-2-3">Example 2</h3>
-<p>Nesting <code>for</code> loops.</p>
+<p><strong>Example 3</strong></p>
+<p>Nested <code>if-else</code> statements.</p>
 <div id="qwebr-insertion-location-18"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-</section>
-<section id="while-loops" class="level2">
-<h2 class="anchored" data-anchor-id="while-loops"><code>while</code> loops</h2>
-<p>When you do not know how often the desired operations should be executed, you can use the <code>while</code> loop.</p>
-<p><em>Basic structure:</em></p>
+<p><strong>Example 4</strong></p>
+<p>The <code>switch</code> function allows to evaluate an expression (<code>EXPR</code>) and choose from a list of alternatives. The following code is similar to <strong>Example 3</strong>.</p>
 <div id="qwebr-insertion-location-19"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="example-1-4" class="level3">
-<h3 class="anchored" data-anchor-id="example-1-4">Example 1</h3>
-<p>If we want to compute the factorial of any number.</p>
+<p><strong>Example 5</strong></p>
+<p>Use the <code>ifelse(test, yes, no)</code> function to test an expression and return the elements in <code>yes</code> or <code>no</code>, depending on whether the test is <code>TRUE</code> or <code>FALSE</code>. The following code is similar to <strong>Example 1</strong>. This can be useful when managing data.</p>
 <div id="qwebr-insertion-location-20"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-</section>
-</section>
-<section id="writing-functions" class="level1">
-<h1>Writing functions</h1>
-<p>Basic structure.</p>
+<section id="for-loops" class="level3">
+<h3 class="anchored" data-anchor-id="for-loops"><code>for</code> loops</h3>
+<p><em>Basic structure:</em></p>
 <div id="qwebr-insertion-location-21"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="examples" class="level2">
-<h2 class="anchored" data-anchor-id="examples">Examples</h2>
-<section id="example-1-5" class="level3">
-<h3 class="anchored" data-anchor-id="example-1-5">Example 1</h3>
-<p>A function that simply assigns three different objects.</p>
+<p><strong>Example 1</strong></p>
+<p>A loop that prints the index of the current loop.</p>
 <div id="qwebr-insertion-location-22"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="example-2-4" class="level3">
-<h3 class="anchored" data-anchor-id="example-2-4">Example 2</h3>
-<p>A function with multiple returns.</p>
+<p><strong>NOTE</strong>: as a practice, use names for your loop index that ends with <code>_i</code>, for example, <code>iter_i</code>, <code>year_i</code>, and <code>ind_i</code>; this will allow you to differentiate between the loop index and your other objects.</p>
+<p><strong>Example 2</strong></p>
+<p>Let’s create a matrix whose elements are equal to the multiplication of the row and column numbers (i.e., let <span class="math inline">\(m_{i,j}\)</span> be the element in the <span class="math inline">\(i\)</span>-th row and <span class="math inline">\(j\)</span>-th column of the matrix, then <span class="math inline">\(m_{i,j} = i\times j\)</span>).</p>
 <div id="qwebr-insertion-location-23"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section id="example-3-2" class="level3">
-<h3 class="anchored" data-anchor-id="example-3-2">Example 3</h3>
-<p>A function with arguments.</p>
+<section id="while-loops" class="level3">
+<h3 class="anchored" data-anchor-id="while-loops"><code>while</code> loops</h3>
+<p>When you do not know how often the desired operations should be executed, you can use the <code>while</code> loop.</p>
+<p><em>Basic structure:</em></p>
 <div id="qwebr-insertion-location-24"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Example 1</strong></p>
+<p>Let’s create a code that calculates the factorial of any number.</p>
+<div id="qwebr-insertion-location-25"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="writing-functions" class="level2">
+<h2 class="anchored" data-anchor-id="writing-functions">Writing functions</h2>
+<p>Basic structure.</p>
+<div id="qwebr-insertion-location-26"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Example 1</strong></p>
+<p>A function that simply assigns three different objects.</p>
+<div id="qwebr-insertion-location-27"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Example 2</strong></p>
+<p>A function with multiple returns.</p>
+<div id="qwebr-insertion-location-28"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Example 3</strong></p>
+<p>A function with arguments.</p>
+<div id="qwebr-insertion-location-29"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><strong>Questions:</strong></p>
 <ol type="1">
@@ -2156,28 +2169,139 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <li><p>What value would <code>dummy2()</code> return?</p></li>
 <li><p>How many <code>return</code> elements can a function have?</p></li>
 </ol>
-</section>
-<section id="example-4-2" class="level3">
-<h3 class="anchored" data-anchor-id="example-4-2">Example 4</h3>
+<p><strong>Example 4</strong></p>
 <p>Ellipsis <code>...</code></p>
-<div id="qwebr-insertion-location-25"></div>
+<div id="qwebr-insertion-location-30"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-</section>
-<section id="takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+<p><strong>Takeaways</strong></p>
 <ul>
 <li>A list of arguments is not always required for a function to be executed.</li>
 <li>A function that does not have a <code>return</code> element technically returns nothing; but it implicitly returns the last line of code.</li>
 <li>A function can have multiple <code>return</code> elements, however, once it encounters a return, it exits.</li>
 <li>Ellipsis allows you to pass additional arguments without having to first define them in the argument list, and these arguments can then be passed to another function call within the body of the code.</li>
 </ul>
+</section>
+</section>
+<section id="applications" class="level1">
+<h1>Applications</h1>
+<section id="markov-models" class="level2">
+<h2 class="anchored" data-anchor-id="markov-models">Markov models</h2>
+<p>This section is based on <span class="citation" data-cites="drabo2023">Drabo and Padula (<a href="#ref-drabo2023" role="doc-biblioref">2023</a>)</span> and follows the same example of hepatitis B. The coding sections have been created by me.</p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<ul>
+<li><p>Models can be a valuable tool for public health decision-making. They help to extrapolate the long-term effects of observed clinical trials and estimate the distribution of a population into different health states when implementing policy strategies.</p></li>
+<li><p>Health (e.g., life years, quality of life) and economic (e.g., vaccination costs) outcomes can be estimated for each strategy considered.</p></li>
+<li><p>Markov models depict how individuals move between health states based on their previous state probabilities.</p></li>
+<li><p><em>Markov assumption</em>: all states are independent of all pasts states.</p></li>
+</ul>
+</section>
+<section id="elements" class="level3">
+<h3 class="anchored" data-anchor-id="elements">Elements</h3>
+<ol type="1">
+<li><p>Set of health states that are mutually <em>exclusive</em> (an individual cannot be in both states simultaneously) and <em>exhaustive</em> (includes all possible states).</p></li>
+<li><p>Transition matrix that represents the transition of individuals in a cohort between different health states (constant or time-varying).</p></li>
+</ol>
+<p><span class="math display">\[
+T =
+\begin{bmatrix}
+q(s_1,s_1) &amp; q(s_1,s_2) &amp; q(s_1,s_3) \\
+q(s_2,s_1) &amp; q(s_2,s_2) &amp; q(s_2,s_3)
+\end{bmatrix}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(q(s_i,s_j)\)</span> describes the transition probability from the current state <span class="math inline">\(s_i\)</span> to the transition state <span class="math inline">\(s_j\)</span>.</p></li>
+<li><p>The value of each transition probability ranges between 0 and 1.</p></li>
+<li><p>Each row must sum to 1, as all the states are mutually exclusive.</p></li>
+</ul>
+<ol start="3" type="1">
+<li>Transitions occur over a period, called cycle <span class="math inline">\(t\)</span>.</li>
+<li>The probability of being in a state <span class="math inline">\(S(t)\)</span> can be denoted as:</li>
+</ol>
+<p><span class="math display">\[
+S(t) = S(0)\times T^t
+\]</span></p>
+<p>where, <span class="math inline">\(S(0)\)</span> is the vector of the probabilities of being in each state at the beginning of the simulation, <span class="math inline">\(T^t\)</span> is the product of multiplying <span class="math inline">\(t\)</span> state transition matrices.</p>
+<ol start="5" type="1">
+<li>Set of rewards or payoffs (e.g., cost of benefits) associated to each state.</li>
+<li>If an individual is unable to leave a state once they enter it (e.g., dead), that state is considered to be an <em>absorbing</em> state, and any non-absorbing state is called <em>transient</em>.</li>
+</ol>
+</section>
+<section id="example-hepatitis-b" class="level3">
+<h3 class="anchored" data-anchor-id="example-hepatitis-b">Example: hepatitis B</h3>
+<ul>
+<li>Five mutually exclusive health states: susceptible (<strong>S</strong>), infected (<strong>I</strong>), vaccinated (<strong>V</strong>), recovered (<strong>R</strong>), and dead (<strong>D</strong>).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_SIVRD_model.png" class="img-fluid figure-img" style="width:15cm"></p>
+<figcaption>State transition diagram</figcaption>
+</figure>
+</div>
+<ul>
+<li>Cycle length 1 year.</li>
+<li>Time horizon 59 years (<em>lifetime horizon</em>).</li>
+<li>Model inputs usually come from published data, clinical trials (e.g., vaccine efficacy), transition probabilities from life tables, expert panels, among others.
+<ul>
+<li>The proportion of susceptible people getting vaccinated each cycle is 0.10.</li>
+<li>70% of susceptible people become infected each year.</li>
+<li>0.0045% of the vaccinated individuals lose protection from the vaccine.</li>
+<li>7 out of 8 people with hepatitis C recover.</li>
+<li>The probability of death is 0.002 for susceptible, vaccinated, and recovered individuals, and 0.006 for infected individuals.</li>
+<li>Susceptible cohort population aged 20 years.</li>
+</ul></li>
+</ul>
+<section id="steps-into-developing-a-model-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="steps-into-developing-a-model-in-r">Steps into developing a model in <code>R</code></h4>
+<ol type="1">
+<li><em>Parameterization of the model.</em> We will create a function that takes the model inputs as arguments and returns a list containing all the model parameters.</li>
+</ol>
+<div id="qwebr-insertion-location-31"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ol start="2" type="1">
+<li><em>Markov model function</em>: Now that we have a function that collects all the model inputs into a list, let’s create a function that takes the model parameters and returns the distribution of health states at each step.</li>
+</ol>
+<div id="qwebr-insertion-location-32"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ol start="3" type="1">
+<li><em>Simulation</em>: We run the Markov model with the specific model inputs.</li>
+</ol>
+<div id="qwebr-insertion-location-33"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ol start="4" type="1">
+<li><em>Plot outcomes of interest</em></li>
+</ol>
+<div id="qwebr-insertion-location-34"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+
 
 
 </section>
 </section>
+</section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-alarid-escudero2019" class="csl-entry" role="listitem">
+Alarid-Escudero, Fernando, Eline M. Krijkamp, Petros Pechlivanoglou, Hawre Jalal, Szu-Yu Zoe Kao, Alan Yang, and Eva A. Enns. 2019. <span>“A Need for Change! A Coding Framework for Improving Transparency in Decision Modeling.”</span> <em>PharmacoEconomics</em> 37 (11): 1329–39. <a href="https://doi.org/10.1007/s40273-019-00837-x">https://doi.org/10.1007/s40273-019-00837-x</a>.
+</div>
+<div id="ref-Davis2016" class="csl-entry" role="listitem">
+Davies, T. M. 2016. <em><span class="nocase">The book of R : a first course in programming and statistics</span></em>. 1st ed. San Francisco, CA, USA: No Starch Press.
+</div>
+<div id="ref-drabo2023" class="csl-entry" role="listitem">
+Drabo, Emmanuel F., and William V. Padula. 2023. <span>“Introduction to Markov Modeling.”</span> In, 264–78. Oxford University PressOxford. <a href="https://doi.org/10.1093/oso/9780192896087.003.0022">https://doi.org/10.1093/oso/9780192896087.003.0022</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{gracia_olvera2024,
+  author = {Gracia Olvera, Valeria},
+  title = {Learning {R}},
+  date = {2024-09-11},
+  url = {https://vgraciaol.github.io/rprogramming.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-gracia_olvera2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Gracia Olvera, Valeria. 2024. <span>“Learning R.”</span> September 11,
+2024. <a href="https://vgraciaol.github.io/rprogramming.html">https://vgraciaol.github.io/rprogramming.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
