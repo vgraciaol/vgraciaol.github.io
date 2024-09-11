@@ -208,7 +208,7 @@ m_C["r2","c3"]   # second row, third column
 -   `t()` transpose of a matrix: switching a matrix's rows and columns.
 
     ```{webr-r}
-    # 2x3 matrix
+    # 2x5 matrix
     m_D <- matrix(data  = 1:10,
                   nrow  = 2,
                   ncol  = 5)
@@ -322,7 +322,7 @@ a_BR <- array(data = rep(x     = 1:24,
 a_BR
 ```
 
-#### Sub-setting
+**Sub-setting**
 
 ```{webr-r}
 a_BR <- array(data = rep(x     = 1:24, 
@@ -832,10 +832,10 @@ run_Markov <- function(l_params){
     v_state_init  <- l_params$v_state_init
     m_T           <- l_params$m_T
     
-    # Create a matrix containing the transition probability matrix. 
-    # Each matrix represents the transition between states 
-    # and the third dimension represents the time step at 
-    # which that matrix applies
+    # Create an array containing the transition 
+    # probability matrices for each time step. 
+    # Each "slice" of the array contains the
+    # transition between states.
     a_m_T <- array(NA, dim = c(n_states,n_states,n_cycles))
     for(time_i in v_times){ # time_i = 1
       a_m_T[ , , time_i] <- m_T
