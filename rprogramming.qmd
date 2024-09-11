@@ -114,7 +114,7 @@ Let's change the `byrow` argument to `TRUE`.
 
 ```{webr-r}
 # 2x5 matrix
-m_B <- matrix(data  = 1:6,
+m_B <- matrix(data  = 1:15,
               nrow  = 3,
               ncol  = 5,
               byrow = TRUE)
@@ -166,7 +166,7 @@ m_D <- matrix(
 m_D
 ```
 
-If there is insufficient data to fill a matrix as specified by the user, the values will be **recycled**. This is important to note as it will not give an error, but a warning, and the [matrix can still be used in other operations]{.underline}.
+If there is insufficient data to fill a matrix as specified by the user, the values will be **recycled**. This is important to note as it will not give an error, but a warning, and the matrix can still be used in other operations.
 
 **Sub-setting**
 
@@ -258,6 +258,7 @@ m_C["r2","c3"]   # second row, third column
 
     # 4x1 matrix
     m_G <- matrix(c(24,9,0,4))
+    m_G
 
     # Operations 
     m_E + m_F
@@ -395,7 +396,7 @@ Nested `if-else` statements.
 
 ```{webr-r}
 # String
-str1 <- "Vanessa"
+str1 <- "Matt"
 
 # Nested if-else
 if(str1 == "Noah"){
@@ -839,11 +840,20 @@ run_Markov <- function(l_params){
       a_m_T[ , , time_i] <- m_T
     }
     
-    # Create the transition trace matrix (m_TR) capturing 
-    # the proportion of the cohort in each state at each time point
-    m_TR <-  matrix(0, nrow = n_cycles + 1, ncol = n_states, 
-                    dimnames = list( paste("cycle", 0:n_cycles, sep = ""), 
-                                     v_state_names))
+    # Create the transition trace matrix (m_TR)  
+    # capturing the proportion of the cohort in 
+    # each state at each time point
+    m_TR <-  matrix(
+      data     = 0, 
+      nrow     = n_cycles + 1, 
+      ncol     = n_states, 
+      dimnames = list(
+        # row names
+        paste("cycle", 0:n_cycles, sep = ""), 
+        # col names
+        v_state_names
+        )
+      )
     
     # Indicate the initial health state
     m_TR[1, ]  <- v_state_init
@@ -851,7 +861,8 @@ run_Markov <- function(l_params){
     # Run the simulation 
     for (time_i in 2:(n_cycles + 1)){ # i = 2
       
-      # Calculate the proportion of the cohort in each state at time t
+      # Calculate the proportion of the cohort 
+      # in each state at time t
       m_TR[time_i, ] <- t(m_TR[time_i - 1, ]) %*% a_m_T[ , , time_i-1]
       
     } 
