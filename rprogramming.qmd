@@ -9,6 +9,7 @@ execute:
 format:
     html: 
       toc: true
+      fontsize: 1.3em
       grid:      
         sidebar-width: 300px
         body-width: 2000px
@@ -29,9 +30,45 @@ The following sections use several coding examples and follow the same structure
 
 ## Matrices and arrays
 
+A **matrix** is a powerful tool, featuring a rectangular arrangement of numbers, symbols, or expressions in rows and columns.
+
+$$
+A = \begin{bmatrix}
+1 & 2 \\
+7 & 3 \\
+4 & 9
+\end{bmatrix}
+$$
+
+$A$ is a matrix with 3 rows and 2 columns, usually said to be a $3 \times 2$ matrix.
+
+Matrices are useful for organizing (numeric) data based on individuals (rows) and attributes (columns). For example, imagine you have the age, sex, and years of schooling for three people:
+
+```{r}
+#| echo: false
+
+df <- data.frame(Age  = c(48,34,56),
+                 Male = c(1,0,1),
+                 Sch_yr = c(10,9,12))
+           
+
+knitr::kable(df, format = "html", 
+             col.names = c("Age","Male","Years of schooling"))
+```
+
+This information can then be represented by a $3 \times 3$ matrix:
+
+$$
+\begin{bmatrix}
+48 & 1 & 10 \\
+34 & 0 & 9 \\
+56 & 1 & 12
+\end{bmatrix}
+$$
+
 ### Matrix
 
-The `matrix` function has the following arguments:
+The `matrix()` function in `R` has the following arguments:
 
 -   `data` in a form of a vector,
 
@@ -45,7 +82,7 @@ The `matrix` function has the following arguments:
 
 **Example 1**
 
-Let us create a 2x2 matrix:
+Let's create a $2 \times 2$ matrix:
 
 ```{webr-r}
 m_A <- matrix(data = c(-3, 2, 83, 0.15), 
@@ -90,7 +127,7 @@ Note that the matrix's first row was filled out before moving on to the next one
 
 **Example 4**
 
-Let's create a 2x3 matrix whose row and column names are indicated using `dimnames`.
+Let's create a $2 \times 3$ matrix whose row and column names are indicated using `dimnames`.
 
 ```{webr-r}
 # 2x3 matrix
@@ -98,14 +135,19 @@ m_C <- matrix(data  = 4:9,
               nrow  = 2,
               ncol  = 3,
               byrow = TRUE,
-              dimnames = list(c("row1","row2"),                  # vector of row names
-                              c("column1","column2","column3"))) # vector of column names
+              dimnames = 
+                list(
+                # vector of row names
+                c("r1","r2"),
+                # vector of column names
+                c("c1","c2","c3"))
+              )
 
 # Get matrix
 m_C
 ```
 
-Note that `dimnames` must be specified using a list.
+Note that `dimnames` must be specified using a `list`.
 
 **Example 5**
 
@@ -113,9 +155,12 @@ What if you don't have enough data to fill the matrix?
 
 ```{webr-r}
 # 2x3 matrix
-m_D <- matrix(data  = 1:4,         # 4 data points to fill a 2x3 matrix
-              nrow  = 2,
-              ncol  = 3)
+m_D <- matrix(
+  # 4 data points to fill a 2x3 matrix
+  data  = 1:4,
+  nrow  = 2,
+  ncol  = 3
+  )
 
 # Get matrix
 m_D
@@ -139,33 +184,41 @@ m_C <- matrix(data  = 4:9,
               nrow  = 2,
               ncol  = 3,
               byrow = TRUE,
-              dimnames = list(c("row1","row2"),                  # vector of row names
-                              c("column1","column2","column3"))) # vector of column names
+              dimnames = 
+                list(
+                # vector of row names
+                c("r1","r2"),
+                # vector of column names
+                c("c1","c2","c3"))
+              )
 
 # Get matrix
 m_C
 
 # Subset
-m_C[1,]                 # first row, all columns
-m_C[,3]                 # third column, all rows
-m_C["row2","column3"]   # second row, third column
+m_C[2,2]         # second row, second column
+m_C[1,]          # first row, all columns
+m_C[,3]          # third column, all rows
+m_C["r2","c3"]   # second row, third column
 ```
 
 **Operations with matrices**
 
--   `t()` transpose of a matrix.
+-   `t()` transpose of a matrix: switching a matrix's rows and columns.
 
     ```{webr-r}
     # 2x3 matrix
-    m_D <- matrix(data  = 1:4,         # 4 data points to fill a 2x3 matrix
+    m_D <- matrix(data  = 1:10,
                   nrow  = 2,
-                  ncol  = 3)
+                  ncol  = 5)
 
     # Subset a matrix from m_D
-    m_D[,2:3]                          # all rows, second and third colum (2x2 matrix)
+    # All rows, second, third, and fourth colum
+    # 2x3 matrix
+    m_D[,2:4]                          
 
-    # Transpose
-    t(m_D[,2:3])
+    # Transpose 3x2 matrix
+    t(m_D[,2:4])
     ```
 
 -   `diag()` extract or replace the diagonal of a matrix, or construct a diagonal matrix. **NOTE**: Remember that you can always use `?diag` to get documentation about the function and its uses.
@@ -198,7 +251,7 @@ m_C["row2","column3"]   # second row, third column
     m_E
 
     # 2x2 matrix
-    m_F <- matrix(data = seq(5,20, by = 5), 
+    m_F <- matrix(data = seq(5, 20, by = 5), 
                   nrow = 2,
                   ncol = 2)
     m_F
@@ -219,17 +272,18 @@ m_C["row2","column3"]   # second row, third column
     t(m_A)     # transpose
     m_A
 
-    # Check that t(m_A) has the same number of rows 
-    # as m_A has columns
+    # Check that t(m_A) has the same 
+    # number of columns as m_A has rows
     ncol(t(m_A)) == nrow(m_A)
 
     # Matrix multiplication
     t(m_A)%*%m_A
     ```
 
--   `solve()` returns the inverse of a matrix.
+-   `solve()` returns the inverse of a **square matrix.**
 
     ```{webr-r}
+    # 2x2 matrix
     m_A <- matrix(data = c(-3, 2, 83, 0.15), 
                   nrow = 2,
                   ncol = 2)
@@ -306,9 +360,11 @@ a <- 4
 
 # if-else
 if(a == 4){
-  cat("The condition was", a == 4,"\n")       # \n creates an new line
+  # \n creates an new line
+  cat("The condition was", a == 4,"\n")
   a <- a^2
 }else{
+  # \n creates an new line
   cat("The condition was", a != 4,"\n")
   a <- a
 }
@@ -325,8 +381,8 @@ a
 # Number
 a <- 4
 
-# if-else
-if (c(T,T,F,F,T)){         # error
+# if-else: error
+if (c(T,T,F,F,T)){  
   a <- 3
 }else{
   a <- 5
@@ -480,7 +536,7 @@ factorial_value
 
 ## Writing functions
 
-Basic structure.
+*Basic structure:*
 
 ```{webr-r}
 # functionname <- function(arg1,arg2,arg3,...){
@@ -502,11 +558,34 @@ dummy1 <- function(){
 
 # Execute function
 dummy1()
+
+# Get aa value
+aa
 ```
+
+Note that even if you run the function, trying to get the element `aa` does not work. This happens because everything that is executed inside a function resides locally in the function. To get the objects you create inside a function, you need to add a `return()`.
+
+However, what happens if you run `bn <- dummy1()` and then get the object `bn`?
+
+```{webr-r}
+dummy1 <- function(){
+  aa <- 2.5
+  bb <- "string"
+  dd <- 4:8
+}
+
+# Execute the function and assign it to an object
+bn <- dummy1()
+
+# Get bn value
+bn
+```
+
+Note that a function that does not have a `return()` technically returns nothing; but it implicitly returns the last line of code.
 
 **Example 2**
 
-A function with multiple returns.
+But how many `return()` can a function have? See the following example of a function with multiple returns.
 
 ```{webr-r}
 dummy2 <- function(){
@@ -521,11 +600,16 @@ dummy2 <- function(){
 dummy2()
 ```
 
+Note that a function can have multiple `return()`, however, once it encounters one, it exits.
+
 **Example 3**
 
 A function with arguments.
 
 ```{webr-r}
+# Get the sum of two numbers
+# if a and b are number then return the sum
+# otherwise, return NA
 get_sum <- function(a,b){
   if(is.numeric(a) & is.numeric(b)){
     return(a+b)
@@ -540,24 +624,19 @@ get_sum(4,5)
 get_sum("a",5)
 ```
 
-**Questions:**
+Does a function always require arguments? No, it doesn't. A list of arguments is not always required to execute a function. So, when is it necessary to add arguments to our functions? We add them when we want to execute a code multiple times using different input values.
 
-1.  Does a function always require arguments? When is it necessary for it to have arguments?
+**Ellipsis `...`**
 
-2.  What happened if you run `dummy1()` and then get the object `aa`?
-
-3.  What happens if you run `bn <- dummy1()` and then get the object `bn`?
-
-4.  What value would `dummy2()` return?
-
-5.  How many `return` elements can a function have?
-
-**Example 4**
-
-Ellipsis `...`
+It allows you to pass additional arguments without having to first define them in the argument list, and these arguments can then be passed to another function call within the body of the code.
 
 ```{webr-r}
+# Create a function that plots x values 
+# against y values with some flexibility in 
+# passing other arguments to plot() using ellipses
 myplot_fun <- function(x,y,...){
+  
+  # Creates an error if x length and y length are not equal
   if(length(x) != length(y)){
     message("Error: vectors must be the same length")
   }
@@ -566,8 +645,16 @@ myplot_fun <- function(x,y,...){
   }
 }
 
-myplot_fun(c(1,2,3,4),c(5,6,7,8))
-myplot_fun(c(1,2,3,4),c(5,6,7))
+# Run the function with x and y
+myplot_fun(x = c(1,2,3,4), 
+           y = c(5,6,7,8))
+
+# Run the function with x and y with
+# different dimensions
+myplot_fun(x = c(1,2,3,4),
+           y = c(5,6,7))
+
+# Run the function with other arguments
 myplot_fun(x = c(1,2,3,4), 
            y = c(5,6,7,8),
            main = "Plot in a function",
@@ -575,13 +662,6 @@ myplot_fun(x = c(1,2,3,4),
            xlab = "x-axis",
            ylab = "y-axis")
 ```
-
-**Takeaways**
-
--   A list of arguments is not always required for a function to be executed.
--   A function that does not have a `return` element technically returns nothing; but it implicitly returns the last line of code.
--   A function can have multiple `return` elements, however, once it encounters a return, it exits.
--   Ellipsis allows you to pass additional arguments without having to first define them in the argument list, and these arguments can then be passed to another function call within the body of the code.
 
 # Applications
 
@@ -593,7 +673,7 @@ This section is based on @drabo2023 and follows the same example of hepatitis B.
 
 -   Models can be a valuable tool for public health decision-making. They help to extrapolate the long-term effects of observed clinical trials and estimate the distribution of a population into different health states when implementing policy strategies.
 
--   Health (e.g., life years, quality of life) and economic (e.g., vaccination costs) outcomes can be estimated for each strategy considered.
+-   Health (e.g., life years, quality of life years) and economic (e.g., vaccination costs) outcomes can be estimated for each strategy considered.
 
 -   Markov models depict how individuals move between health states based on their previous state probabilities.
 
@@ -617,7 +697,7 @@ $$
 
 -   The value of each transition probability ranges between 0 and 1.
 
--   Each row must sum to 1, as all the states are mutually exclusive.
+-   Each row must sum to 1 since all states are mutually exclusive.
 
 3.  Transitions occur over a period, called cycle $t$.
 4.  The probability of being in a state $S(t)$ can be denoted as:
@@ -638,14 +718,14 @@ where, $S(0)$ is the vector of the probabilities of being in each state at the b
 ![State transition diagram](fig_SIVRD_model.png){fig-align="center" width="15cm"}
 
 -   Cycle length 1 year.
--   Time horizon 59 years (*lifetime horizon*).
+-   Time horizon 59 years.
 -   Model inputs usually come from published data, clinical trials (e.g., vaccine efficacy), transition probabilities from life tables, expert panels, among others.
     -   The proportion of susceptible people getting vaccinated each cycle is 0.10.
     -   70% of susceptible people become infected each year.
     -   0.0045% of the vaccinated individuals lose protection from the vaccine.
     -   7 out of 8 people with hepatitis C recover.
     -   The probability of death is 0.002 for susceptible, vaccinated, and recovered individuals, and 0.006 for infected individuals.
-    -   Susceptible cohort population aged 20 years.
+    -   Susceptible cohort population.
 
 #### Steps into developing a model in `R`
 
@@ -653,17 +733,21 @@ where, $S(0)$ is the vector of the probabilities of being in each state at the b
 
 ```{webr-r}
 # List of model parameters
+#
 # n_t: time horizon
 # cycle_len: cycle length
 # v_state_init: vector of initial health states
-# p_S_V: transition prob. from susceptible to vaccinated.
-# p_S_I: transition prob. from susceptible to infected.
-# p_S_D: transition prob. from susceptible to dead.
-# p_V_I: transition prob. from vaccinated to infected.
-# p_V_D: transition prob. from vaccinated to dead.
-# p_I_R: transition prob. from infected to recovered.
-# p_I_D: transition prob. from infected to dead.
-# p_R_D: transition prob. from recovered to dead.
+# 
+# Transition probabilities 
+#   p_S_V: from susceptible to vaccinated
+#   p_S_I: from susceptible to infected
+#   p_S_D: from susceptible to dead
+#   p_V_I: from vaccinated to infected
+#   p_V_D: from vaccinated to dead
+#   p_I_R: from infected to recovered
+#   p_I_D: from infected to dead
+#   p_R_D: from recovered to dead
+
 load_params_all <- function(n_t, 
                             cycle_len,
                             v_state_init,
@@ -678,7 +762,9 @@ load_params_all <- function(n_t,
   
     # Health states
     v_state_names <- names(v_state_init)
-    n_states <- length(v_state_names)  # number of health states
+    
+    # Number of health states
+    n_states <- length(v_state_names) 
     
     # Vector of times to which the model will be evaluated
     n_cycles <- n_t/cycle_len 
@@ -744,27 +830,34 @@ run_Markov <- function(l_params){
     v_state_init  <- l_params$v_state_init
     m_T           <- l_params$m_T
     
-    # create array containing transition probability matrix
+    # Create a matrix containing the transition probability matrix. 
+    # Each matrix represents the transition between states 
+    # and the third dimension represents the time step at 
+    # which that matrix applies
     a_m_T <- array(NA, dim = c(n_states,n_states,n_cycles))
     for(time_i in v_times){ # time_i = 1
       a_m_T[ , , time_i] <- m_T
     }
     
-    # create the transition trace matrix (m_TR) capturing the proportion of the cohort in each state at each time point
+    # Create the transition trace matrix (m_TR) capturing 
+    # the proportion of the cohort in each state at each time point
     m_TR <-  matrix(0, nrow = n_cycles + 1, ncol = n_states, 
                     dimnames = list( paste("cycle", 0:n_cycles, sep = ""), 
                                      v_state_names))
     
-    # indicate the initial health state
+    # Indicate the initial health state
     m_TR[1, ]  <- v_state_init
     
-    # run the simulation 
+    # Run the simulation 
     for (time_i in 2:(n_cycles + 1)){ # i = 2
-      # calculate the proportion of the cohort in each state at time t
+      
+      # Calculate the proportion of the cohort in each state at time t
       m_TR[time_i, ] <- t(m_TR[time_i - 1, ]) %*% a_m_T[ , , time_i-1]
-    } # close the loop for the individuals 
+      
+    } 
     
-    return(m_TR)  # return the results
+    # Return the trace matrix
+    return(m_TR)
   
 }
 ```
@@ -775,14 +868,6 @@ run_Markov <- function(l_params){
 # Time horizon
 n_t <- 59             # lifetime horizon
 cycle_len <- 1        # 1 year
-cohort_age <- 20      # Age of the population
-
-# Utilities
-v_utility <- c(S = 1.00,
-               V = 1.00,
-               I = 0.75,
-               R = 1.00,
-               D = 0.00)
 
 # Initial state
 v_state_init <- c(S = 1, 
@@ -792,52 +877,53 @@ v_state_init <- c(S = 1,
                   D = 0)  
 
 # Transition probabilities
-prob_S_V <- 0.1
-prob_S_I <- 0.7
-prob_S_D <- 0.002
-prob_V_I <- 0.0045/100
-prob_V_D <- 0.002
-prob_I_R <- 7/8
-prob_I_D <- 0.006
-prob_R_D <- 0.002
+p_S_V <- 0.1
+p_S_I <- 0.7
+p_S_D <- 0.002
+p_V_I <- 0.0045/100
+p_V_D <- 0.002
+p_I_R <- 7/8
+p_I_D <- 0.006
+p_R_D <- 0.002
 
 # Load list of parameters
 l_params_all <- load_params_all(n_t          = n_t, 
                                 cycle_len    = cycle_len,
                                 v_state_init = v_state_init,
-                                p_S_V        = prob_S_V,
-                                p_S_I        = prob_S_I,
-                                p_S_D        = prob_S_D,
-                                p_V_I        = prob_V_I,
-                                p_V_D        = prob_V_D,
-                                p_I_R        = prob_I_R,
-                                p_I_D        = prob_I_D,
-                                p_R_D        = prob_R_D)
+                                p_S_V        = p_S_V,
+                                p_S_I        = p_S_I,
+                                p_S_D        = p_S_D,
+                                p_V_I        = p_V_I,
+                                p_V_D        = p_V_D,
+                                p_I_R        = p_I_R,
+                                p_I_D        = p_I_D,
+                                p_R_D        = p_R_D)
 
 # Run the Markov model
 m_trace <- run_Markov(l_params = l_params_all)
-
 ```
 
-4.  *Plot outcomes of interest*
+4.  *Plot health states*
 
 ```{webr-r}
 # Create data.frame with results
-df_trace <- rbind(data.frame(time  = l_params_all$v_times,
-                             var   = "Susceptible",
-                             value = as.numeric(m_trace[,"S"])),
-                  data.frame(time  = l_params_all$v_times,
-                             var   = "Vaccinated",
-                             value = as.numeric(m_trace[,"V"])),
-                  data.frame(time  = l_params_all$v_times,
-                             var   = "Infected",
-                             value = as.numeric(m_trace[,"I"])),
-                  data.frame(time  = l_params_all$v_times,
-                             var   = "Recovered",
-                             value = as.numeric(m_trace[,"R"])),
-                  data.frame(time  = l_params_all$v_times,
-                             var   = "Dead",
-                             value = as.numeric(m_trace[,"D"])))
+df_trace <- rbind(
+  data.frame(time  = l_params_all$v_times,
+             var   = "Susceptible",
+             value = as.numeric(m_trace[,"S"])),
+  data.frame(time  = l_params_all$v_times,
+             var   = "Vaccinated",
+             value = as.numeric(m_trace[,"V"])),
+  data.frame(time  = l_params_all$v_times,
+             var   = "Infected",
+             value = as.numeric(m_trace[,"I"])),
+  data.frame(time  = l_params_all$v_times,
+             var   = "Recovered",
+             value = as.numeric(m_trace[,"R"])),
+  data.frame(time  = l_params_all$v_times,
+             var   = "Dead",
+             value = as.numeric(m_trace[,"D"]))
+  )
 
 # Plot results
 plot(x = df_trace$time[df_trace$var == "Susceptible"],
