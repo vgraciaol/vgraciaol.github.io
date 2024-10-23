@@ -2,7 +2,7 @@
 title: "Learning R"
 description: "Interactive Quarto Document using webR"
 author: "Valeria Gracia Olvera"
-date: "09/11/24"
+date: "10/23/24"
 execute:
   echo: true
   error: true
@@ -401,29 +401,29 @@ if (c(T,T,F,F,T)){
 You can use nested `if-else` if you want to evaluate more than one statement.
 
 ```{webr-r}
-# Example: you have the GPA of four 
-# students and you want to get it using 
+# Example: you have the age of four 
+# individuals and you want to get it using 
 # a series of if-else statements
 
 # String
-str1 <- "Matt"
+str1 <- "Ava"
 
 # Nested if-else
-if(str1 == "Noah"){
-  cal <- 10
-  cat(paste0(str1,"'s GPA is ", cal, "."))
-}else if(str1 == "Alex"){
-  cal <- 9
-  cat(paste0(str1,"'s GPA is ", cal, "."))
-}else if(str1 == "Matt"){
-  cal <- 6
-  cat(paste0(str1,"'s GPA is ", cal, "."))
+if(str1 == "Omar"){
+  cal <- 37
+  cat(paste0(str1,"'s age is ", cal, "."))
+}else if(str1 == "Alexander"){
+  cal <- 19
+  cat(paste0(str1,"'s age is ", cal, "."))
+}else if(str1 == "Ava"){
+  cal <- 21
+  cat(paste0(str1,"'s age is ", cal, "."))
 }else if(str1 == "Vanessa"){
-  cal <- 8
-  cat(paste0(str1,"'s GPA is ", cal, "."))
+  cal <- 30
+  cat(paste0(str1,"'s age is ", cal, "."))
 }else{
   cal <- NA
-  cat("That student does not exist.")
+  cat("That individual does not exist.")
 }
 ```
 
@@ -433,21 +433,21 @@ The `switch` function allows to evaluate an expression (`EXPR`) and choose from 
 
 ```{webr-r}
 # String
-str1 <- "Matt"
+str1 <- "Ava"
 
 # switch() function
-cal <- switch(EXPR    = str1,
-              Noah    = 10,
-              Alex    = 9,
-              Matt    = 6,
-              Vanessa = 8,
+cal <- switch(EXPR      = str1,
+              Omar      = 37,
+              Alexander = 19,
+              Ava       = 21,
+              Vanessa   = 30,
               NA)             # unnamed element in case of no match
 
 # Result
 if(!is.na(cal)){
-  cat(paste0(str1,"'s GPA is ", cal, "."))
+  cat(paste0(str1,"'s age is ", cal, "."))
 }else{
-  cat("That student does not exist.")
+  cat("That individual does not exist.")
 }
 ```
 
@@ -682,7 +682,7 @@ myplot_fun(x = c(1,2,3,4),
 
 # Applications
 
-## Markov models 
+## Markov models
 
 This section is based on @drabo2023 and follows the same example of hepatitis B. The coding sections have been created by me.
 
